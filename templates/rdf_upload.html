@@ -3,8 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <title>{{name}}</title>
+    <!-- import vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- import Element UI style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
+    <!-- import Element UI ui lib -->
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//unpkg.com/vue@2"></script>
+    <script src="//unpkg.com/element-ui"></script>
+    <script src="//unpkg.com/element-ui/lib/umd/locale/en.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #app {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .form-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: white;
+        }
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+<div id="app">
+    <div class="form-container">
+        <div class="form-title">Upload RDF File</div>
+        <el-form ref="form" :model="form" :rules="rules" label-width="100px">
+            <el-form-item label="Title" prop="title">
+                <el-input v-model="form.title"></el-input>
+            </el-form-item>
+            <el-form-item label="Description">
+                <el-input type="textarea" v-model="form.description"></el-input>
+            </el-form-item>
+            <el-form-item label="RDF File" prop="file">
+                <el-upload
+                    action=""
+                    multiple
+                    :on-change="handleChange"
+                    :file-list="fileList"
+                    :auto-upload="false"
+                    accept=".*">
+                    <el-button slot="trigger" size="small" type="primary">Select File</el-button>
+                    <el-button size="small" type="success" @click="submitForm">Upload</el-button>
+                </el-upload>
+            </el-form-item>
+        </el-form>
+    </div>
+</div>
 
+<script>
+        new Vue({
+        el: '#app',
+        data: {
+            form: {
+                title: '',
+                description: '',
+                file: null,
+            },
+            fileList: [],
+            rules: {
+                title: [
+                    { required: true, message: 'Title is required', trigger: 'blur' }
+                ],
+                file: [
+                    { required: true, message: 'File is required', trigger: 'change' }
+                ]
+            }
+        },
+        methods: {
+            handleChange(file, fileList) {
+                this.form.file = file;
+                this.fileList = fileList;
+                {#console.log(this.fileList)#}
+            },
+            submitForm() {
+                this.$refs.form.validate((valid) => {
+                    if (valid) {
+                        const formData = new FormData();
+                        formData.append('title', this.form.title);
+                        formData.append('description', this.form.description);
+                        {#formData.append('rdf_file', this.form.file[0]);#}
+                         this.fileList.forEach((file) => {
+                            formData.append('rdf_files', file.raw);
+                        });
+
+                         for (var [a, b] of formData.entries()) {
+                            console.log(a, b);
+                         }
+
+                        axios.post('/uploadRDF_request', formData, {
+                            headers: {
+                                'Content-Type': 'multipart/form-data',
+                            },
+                        })
+                        .then(response => {
+                            alert('File uploaded successfully: ' + response.data.record_id);
+                        })
+                        .catch(error => {
+                            alert('Error uploading file: ' + (error.response.data.error || error.message));
+                        });
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            }
+        }
+    });
+    ELEMENT.locale(ELEMENT.lang.en);
+    </script>
 </body>
+
 </html>

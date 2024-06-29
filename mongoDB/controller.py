@@ -1,19 +1,15 @@
 from pymongo import MongoClient
-from marshmallow import Schema, fields, validate, ValidationError
+from marshmallow import ValidationError
 from bson.objectid import ObjectId
 from datetime import datetime
+from mongoDB.schema.upload_record import UploadRecordSchema
 
 def init_db():
     client = MongoClient('mongodb+srv://tommy:!project22558800@disser.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000')
     db = client['rdfData']
     return db
 
-# 定义 UploadRecordSchema
-class UploadRecordSchema(Schema):
-    title = fields.String(required=True, validate=validate.Length(min=1, max=200))
-    description = fields.String(required=False, validate=validate.Length(max=500))
-    file_url = fields.String(required=True, validate=validate.URL())
-    created_at = fields.DateTime(required=True)
+
 
 class MongoDBInterface:
     def __init__(self, db):

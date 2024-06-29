@@ -1,12 +1,20 @@
 from flask import Flask
 from router.router import router
+from requestHandler.handler import handler
+from mongoDB.controller import init_db, MongoDBInterface
+
 app = Flask(__name__)
+
+## register blueprint
 app.register_blueprint(router)
+app.register_blueprint(handler)
 
-# @app.route('/')
-# def hello_world():  # put application's code here
-#     return 'index'
+# ini database connection
+db = init_db()
+db_interface = MongoDBInterface(db)
 
+# store db_interface object in app config
+app.config['DB_INTERFACE'] = db_interface
 
 if __name__ == '__main__':
     app.run()
