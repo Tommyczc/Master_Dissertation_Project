@@ -7,7 +7,6 @@ handler = Blueprint('handler', __name__)
 def uploadRDF_request():
     print("called")
     try:
-        params = request.form.to_dict()
         title = request.form.get('title')
         description = request.form.get('description')
         rdf_files = request.files.getlist('rdf_files')

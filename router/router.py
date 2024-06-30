@@ -18,6 +18,10 @@ def upload():
     return render_template('rdf_upload.html', name="Upload")
 
 
+@router.route('/uploadRDF', methods=['get'])
+def upload():
+    return render_template('rdf_upload.html', name="Upload")
+
 @router.route('/about', methods=['get'])
 def about():
     return render_template('about.html', name="About")
