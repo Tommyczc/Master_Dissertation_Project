@@ -3,8 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>{{name}}</title>
+    <!-- import vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- import Element UI style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
+    <!-- import Element UI ui lib -->
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//unpkg.com/vue@2"></script>
+    <script src="//unpkg.com/element-ui"></script>
+    <script src="//unpkg.com/element-ui/lib/umd/locale/en.js"></script>
+    <script src="{{ url_for('static', filename='js/commonUtils.js') }}"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #app {
+            padding: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+<div id="app">
+    <el-input
+        placeholder="Search by title"
+        v-model="search"
+        clearable
+        class="search-input"
+        style="width: 300px; float: right; margin-bottom: 10px;"
+    ></el-input>
+    <div class="table-container">
+        <el-table :data="filteredRecords" @row-click="handleRowClick">
+            <el-table-column prop="title" label="Title"></el-table-column>
+            <el-table-column prop="description" label="Description"></el-table-column>
+            <el-table-column prop="created_at" label="Upload Time" :formatter="formatDate"></el-table-column>
+        </el-table>
+    </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Vue({
+            el: '#app',
+            data: {
+                records: {{ records | tojson }},
+                search: ''
+            },
+            computed: {
+                filteredRecords() {
+                    return this.records.filter(record =>
+                        record.title.toLowerCase().includes(this.search.toLowerCase())
+                    );
+                }
+            },
+            mounted() {
+                console.log(this.data.records)
+            },
+            methods: {
+                formatDate(row, column, cellValue) {
+                    if (!cellValue) return '';
+                    const date = new Date(cellValue);
+                    return date.toLocaleString();
+                },
+                handleRowClick(row) {
+                    window.location.href = `/detail/${row.id}`;
+                }
+            }
+        });
+    });
+</script>
+</div>
 </body>
 </html>

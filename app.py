@@ -10,8 +10,8 @@ app.register_blueprint(router)
 app.register_blueprint(handler)
 
 # ini database connection
-db = init_db()
-db_interface = MongoDBInterface(db)
+db, fs = init_db()
+db_interface = MongoDBInterface(db, fs)
 
 # store db_interface object in app config
 app.config['DB_INTERFACE'] = db_interface
