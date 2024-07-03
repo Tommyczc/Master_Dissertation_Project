@@ -14,7 +14,7 @@
     <script src="//unpkg.com/vue@2"></script>
     <script src="//unpkg.com/element-ui"></script>
     <script src="//unpkg.com/element-ui/lib/umd/locale/en.js"></script>
-
+    <script src="{{ url_for('static', filename='js/commonUtils.js') }}"></script>
     <style>
         body, html {
             height: 100%;
@@ -115,6 +115,7 @@
                             {#alert('File uploaded successfully: ' + response.data.record_id);#}
                             console.log('insert_id:  '+response.data.success)
                             this.$message.success('File uploaded successfully');
+                            console.log(response.data)
                             window.location.href='/detail/'+response.data.success
                         })
                         .catch(error => {
@@ -131,7 +132,7 @@
     });
     ELEMENT.locale(ELEMENT.lang.en);
     </script>
-<script src="{{ url_for('static', filename='js/commonUtils.js') }}"></script>
+
 </body>
 
 </html>

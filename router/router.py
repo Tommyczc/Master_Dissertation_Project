@@ -34,6 +34,7 @@ def sparQL():
 
 @router.route('/detail/<path:subpath>', methods=['get'])
 def detail(subpath):
+    # print("subpath: ", subpath)
     db_interface = current_app.config['DB_INTERFACE']
     data=db_interface.get_upload_record(subpath)
     return render_template('detail.html', name="Detail", insert_id=subpath, record=data)

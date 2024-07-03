@@ -31,7 +31,7 @@ class MongoDBInterface:
 
         collection = self.db.upload_records
         result = collection.insert_one(validated_data)
-        return str(result.inserted_id), 201
+        return str(result.inserted_id), 200
 
     def get_upload_record(self, record_id):
         """Retrieves an upload record from the database by its ID."""
