@@ -6,9 +6,8 @@ from datetime import datetime
 from mongoDB.schema.upload_record import UploadRecordSchema
 
 
-def init_db():
-    client = MongoClient(
-        'mongodb+srv://tommy:!project22558800@disser.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000')
+def init_db(connection_string):
+    client = MongoClient(connection_string)
     db = client['rdf_upload_data']
     fs = gridfs.GridFS(db)  # 初始化 GridFS
     return db, fs
