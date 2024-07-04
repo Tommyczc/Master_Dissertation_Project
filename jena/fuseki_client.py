@@ -2,6 +2,7 @@ from pyfuseki import FusekiUpdate, FusekiQuery
 import requests
 from rdflib import Graph
 
+
 class JenaClient:
     def __init__(self, jena_url, dataset):
         self.jena_url = jena_url
@@ -15,7 +16,7 @@ class JenaClient:
                 rdf_data = rdf_file['content']
                 rdf_type = rdf_file['type']
 
-                # 使用 rdflib 解析 RDF 数据并转换为 N-Triples
+                # use rdflib to analyse RDF data and convert to N-Triples
                 g = Graph()
                 g.parse(data=rdf_data, format=rdf_type)
                 ntriples_data = g.serialize(format='nt')
@@ -23,7 +24,7 @@ class JenaClient:
                 headers = {
                     'Content-Type': 'application/sparql-update'
                 }
-                # 插入数据到默认图
+                # insert the data to default graph
                 update_query = f"""
                             INSERT DATA {{
                                 {ntriples_data}
@@ -36,7 +37,7 @@ class JenaClient:
                     print("Fuseki Error: {}".format(response.text))
                     return response.status_code, response.text
 
-                # 记录数据到单独的图
+                # insert the data to single graph
                 record_graph_query = f"""
                        INSERT DATA {{
                            GRAPH <http://example.org/graph/{record_id}> {{
@@ -50,12 +51,10 @@ class JenaClient:
                     print("Fuseki Error: {}".format(response.text))
                     return response.status_code, response.text
 
-
-
             return 200, "All RDF files uploaded successfully"
 
         except Exception as e:
-            print("Error: "+str(e))
+            print("Error: " + str(e))
             return 500, str(e)
 
     def execute_sparql_query(self, query):
@@ -77,5 +76,6 @@ class JenaClient:
         headers = {
             'Content-Type': 'application/sparql-update'
         }
-        response = requests.post(f"{self.jena_url}/{self.dataset}/update", data=delete_query.encode('utf-8'), headers=headers)
+        response = requests.post(f"{self.jena_url}/{self.dataset}/update", data=delete_query.encode('utf-8'),
+                                 headers=headers)
         return response.status_code, response.text
