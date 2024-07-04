@@ -45,7 +45,10 @@
         </el-table>
     </div>
 
-    <script>
+
+</div>
+</body>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         new Vue({
             el: '#app',
@@ -61,7 +64,7 @@
                 }
             },
             mounted() {
-                console.log(this.data.records)
+                {#console.log(this.data.records)#}
             },
             methods: {
                 formatDate(row, column, cellValue) {
@@ -76,6 +79,4 @@
         });
     });
 </script>
-</div>
-</body>
 </html>

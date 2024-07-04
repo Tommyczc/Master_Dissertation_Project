@@ -1,4 +1,6 @@
-from flask import render_template, Blueprint, request, jsonify, current_app, redirect, url_for
+import io
+
+from flask import render_template, Blueprint, request, jsonify, current_app, redirect, url_for, send_file
 
 handler = Blueprint('handler', __name__)
 
@@ -50,7 +52,7 @@ def uploadRDF_request():
         if res_code >= 300:
             return jsonify({"error": res_content}), res_code
 
-        print("upload success, id: {}".format(insert_id))
+        # print("upload success, id: {}".format(insert_id))
         return jsonify({"success": insert_id}), 200
 
     except Exception as e:
@@ -72,3 +74,21 @@ def sparQL_query():
     except Exception as e:
         print("Error: ", str(e))
         return jsonify({"error": str(e)}), 500
+
+
+@handler.route('/download/<file_id>',methods=['get'])
+def download_file(file_id):
+    db_interface = current_app.config['DB_INTERFACE']
+    file = db_interface.get_file(file_id)
+    if not file:
+        return "File not found", 404
+    return send_file(
+        io.BytesIO(file.read()),
+        download_name=file.filename,
+        as_attachment=True
+    )
+
+
+@handler.route('/deleteRDF_request', methods=['post'])
+def deleteRDF_request():
+    return jsonify({"success": True}), 200

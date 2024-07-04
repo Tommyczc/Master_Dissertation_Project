@@ -24,17 +24,20 @@ def uploadHistory():
     allRecords = db_interface.get_all_records()
     return render_template('uploadHistory.html', name="History", records=allRecords)
 
+
 @router.route('/about', methods=['get'])
 def about():
     return render_template('about.html', name="About")
+
 
 @router.route('/sparQL', methods=['get'])
 def sparQL():
     return render_template('sparQL.html', name="sparQL")
 
-@router.route('/detail/<path:subpath>', methods=['get'])
+
+@router.route('/detail/<subpath>', methods=['get'])
 def detail(subpath):
-    # print("subpath: ", subpath)
     db_interface = current_app.config['DB_INTERFACE']
-    data=db_interface.get_upload_record(subpath)
+    data = db_interface.get_upload_record(subpath)
+    # print(data)
     return render_template('detail.html', name="Detail", insert_id=subpath, record=data)

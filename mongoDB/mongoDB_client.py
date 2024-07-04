@@ -35,13 +35,22 @@ class MongoDBInterface:
 
     def get_upload_record(self, record_id):
         """Retrieves an upload record from the database by its ID."""
-        collection = self.db.upload_records
         try:
-            record = collection.find_one({"_id": ObjectId(record_id)})
+            collection = self.db.upload_records
+            record = collection.find_one({'_id': ObjectId(record_id)})
+            if record:
+                print(record)
+                # convert ObjectId to string
+                record['_id'] = str(record['_id'])
+                if 'file_urls' in record:
+                    record['file_urls'] = [
+                        {'filename': self.fs.get(ObjectId(file_id)).filename, 'file_urls': str(file_id)}
+                        for file_id in record['file_urls']
+                    ]
+            return record
         except Exception as e:
+            print("Error: Exception while retrieving upload record")
             return None
-
-        return record
 
     def get_all_records(self):
         collection = self.db.upload_records
@@ -63,6 +72,14 @@ class MongoDBInterface:
             file_id = self.fs.put(file, filename=file.filename)
             file_ids.append(str(file_id))
         return file_ids
+
+    def get_file(self, file_id):
+        try:
+            file = self.fs.get(ObjectId(file_id))
+            return file
+        except gridfs.errors.NoFile:
+            print(f"No file found with id: {file_id}")
+            return None
 
     def get_files(self,file_ids):
         """
