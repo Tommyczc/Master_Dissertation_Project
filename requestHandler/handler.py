@@ -1,6 +1,6 @@
 import io
 
-from flask import render_template, Blueprint, request, jsonify, current_app, redirect, url_for, send_file
+from flask import Blueprint, request, jsonify, current_app, redirect, url_for, send_file
 
 handler = Blueprint('handler', __name__)
 
@@ -63,20 +63,18 @@ def uploadRDF_request():
 @handler.route('/sparQL_query', methods=['post'])
 def sparQL_query():
     try:
-        # query = request.form.get('query')
-        # req=request.form.to_dict()
         req = request.get_json()
         jenaClient = current_app.config['JENA_CLIENT']
-        # print(req['query'])
-        res_content = jenaClient.execute_sparql_query(req['query'])
-        # print("content: ", res_content)
+        res_code, res_content = jenaClient.execute_sparql_query_global(req['query'])
+        if res_code >= 300:
+            return jsonify({"error": res_content}), res_code
         return jsonify({"success": res_content}), 200
     except Exception as e:
         print("Error: ", str(e))
         return jsonify({"error": str(e)}), 500
 
 
-@handler.route('/download/<file_id>',methods=['get'])
+@handler.route('/download/<file_id>', methods=['get'])
 def download_file(file_id):
     db_interface = current_app.config['DB_INTERFACE']
     file = db_interface.get_file(file_id)
@@ -89,6 +87,19 @@ def download_file(file_id):
     )
 
 
-@handler.route('/deleteRDF_request', methods=['post'])
-def deleteRDF_request():
-    return jsonify({"success": True}), 200
+@handler.route('/deleteRDF_request/<file_id>', methods=['get'])
+def deleteRDF_request(file_id):
+    # try:
+    jenaClient = current_app.config['JENA_CLIENT']
+    code, text = jenaClient.delete_rdf_by_record_id(file_id)
+    print(code, text)
+    #todo: delete the record from mongodb
+    return jsonify({"error": text}), code
+    # if status_code >= 300:
+    #     print("error: ", text)
+    #     return jsonify({"error": text}), status_code
+    # else:
+    #     return jsonify({"success": True}), 200
+    # except Exception as e:
+    #     print("fail: ", str(e))
+    #     return jsonify({"error": str(e)}), 500

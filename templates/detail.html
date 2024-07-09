@@ -63,6 +63,20 @@
         <el-table :data="results" style="width: 100%; margin-top: 20px;">
             <el-table-column v-for="(value, key) in results[0]" :prop="key" :label="key" :key="key"></el-table-column>
         </el-table>
+
+        <el-button type="danger" @click="confirmDelete">Delete</el-button>
+        <el-dialog
+            title="Confirm Delete"
+            :visible.sync="dialogVisible"
+            width="30%"
+            @close="dialogVisible = false">
+            <span>Are you sure you want to delete this record?</span>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">Cancel</el-button>
+                <el-button type="primary" @click="deleteRecord">Confirm</el-button>
+            </span>
+        </el-dialog>
+
     </el-card>
 </div>
 
@@ -75,7 +89,8 @@
             data: {{ record | tojson }},
             record_id:{{ insert_id | tojson}},
             sparqlQuery: '',
-            results: []
+            results: [],
+            dialogVisible: false
         },
         mounted() {
             console.log(this.record_id)
@@ -111,6 +126,20 @@
                 this.socket.emit('sparql_query', { username: 'user', room: this.data._id, query: this.sparqlQuery });
             }
 */
+            confirmDelete() {
+                this.dialogVisible = true;
+            },
+            deleteRecord() {
+                axios.get(`/deleteRDF_request/${this.record_id}`)
+                    .then(response => {
+                        this.$message.success('Record deleted successfully');
+                        window.location.href = '/uploadHistory';
+                    })
+                    .catch(error => {
+                        this.$message.error('Error deleting record');
+                    });
+                this.dialogVisible = false;
+            }
         }
     });
     ELEMENT.locale(ELEMENT.lang.en);

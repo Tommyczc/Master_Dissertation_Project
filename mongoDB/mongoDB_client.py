@@ -38,7 +38,7 @@ class MongoDBInterface:
             collection = self.db.upload_records
             record = collection.find_one({'_id': ObjectId(record_id)})
             if record:
-                print(record)
+                # print(record)
                 # convert ObjectId to string
                 record['_id'] = str(record['_id'])
                 if 'file_urls' in record:

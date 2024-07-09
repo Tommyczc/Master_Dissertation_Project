@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, current_app
+from flask import render_template, Blueprint, current_app, redirect, url_for
 
 router = Blueprint('router', __name__)
 
@@ -39,5 +39,7 @@ def sparQL():
 def detail(subpath):
     db_interface = current_app.config['DB_INTERFACE']
     data = db_interface.get_upload_record(subpath)
+    if data is None:
+        redirect(url_for('/uploadHistory'))
     # print(data)
     return render_template('detail.html', name="Detail", insert_id=subpath, record=data)
