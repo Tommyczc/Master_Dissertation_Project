@@ -57,14 +57,22 @@
                     <el-button type="primary" @click="downloadFile(scope.row.file_urls)">Download</el-button>
                 </template>
             </el-table-column>
+
+
+
         </el-table>
+
+
+        <el-button type="danger" @click="confirmDelete">Delete This Record</el-button>
+
+
         <el-input v-model="sparqlQuery" type="textarea" placeholder="Enter SPARQL query" rows="6" style="margin-top: 20px;"></el-input>
         <el-button type="success" @click="">Send Query</el-button>
         <el-table :data="results" style="width: 100%; margin-top: 20px;">
             <el-table-column v-for="(value, key) in results[0]" :prop="key" :label="key" :key="key"></el-table-column>
         </el-table>
 
-        <el-button type="danger" @click="confirmDelete">Delete</el-button>
+
         <el-dialog
             title="Confirm Delete"
             :visible.sync="dialogVisible"

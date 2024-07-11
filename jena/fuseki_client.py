@@ -10,53 +10,6 @@ class JenaClient:
         self.update_client = FusekiUpdate(jena_url, dataset)
         self.query_client = FusekiQuery(jena_url, dataset)
 
-    # def upload_rdf_files(self, rdf_files, record_id):
-    #     try:
-    #         for rdf_file in rdf_files:
-    #             rdf_data = rdf_file['content']
-    #             rdf_type = rdf_file['type']
-    #
-    #             # use rdflib to analyse RDF data and convert to N-Triples
-    #             g = Graph()
-    #             g.parse(data=rdf_data, format=rdf_type)
-    #             ntriples_data = g.serialize(format='nt')
-    #
-    #             headers = {
-    #                 'Content-Type': 'application/sparql-update'
-    #             }
-    #             # insert the data to default graph
-    #             update_query = f"""
-    #                         INSERT DATA {{
-    #                             {ntriples_data}
-    #                             <http://example.org/record/{record_id}> <http://example.org/hasUploaded> _:b0 .
-    #                         }}
-    #                         """
-    #             response = requests.post(f"{self.jena_url}/{self.dataset}/update", data=update_query.encode('utf-8'),
-    #                                      headers=headers)
-    #             if response.status_code >= 300:
-    #                 print("Fuseki Error: {}".format(response.text))
-    #                 return response.status_code, response.text
-    #
-    #             # insert the data to single graph
-    #             record_graph_query = f"""
-    #                    INSERT DATA {{
-    #                        GRAPH <http://example.org/graph/{record_id}> {{
-    #                            <http://example.org/record/{record_id}> <http://example.org/hasUploaded> _:b0 .
-    #                        }}
-    #                    }}
-    #                    """
-    #             response = requests.post(f"{self.jena_url}/{self.dataset}/update",
-    #                                      data=record_graph_query.encode('utf-8'), headers=headers)
-    #             if response.status_code >= 300:
-    #                 print("Fuseki Error: {}".format(response.text))
-    #                 return response.status_code, response.text
-    #
-    #         return 200, "All RDF files uploaded successfully"
-    #
-    #     except Exception as e:
-    #         print("Error: " + str(e))
-    #         return 500, str(e)
-
     def upload_rdf_files(self, rdf_files, record_id):
         named_graph_uri = f"http://example.org/graph/{record_id}"
         headers = {'Content-Type': 'application/sparql-update'}
@@ -114,10 +67,10 @@ class JenaClient:
                                  headers=headers)
 
         # print('res: ',response.status_code,response.text)
-        if response.status_code < 300:
-            return 200,response.json()
-        else:
-            return response.status_code, response.text
+        # if response.status_code < 300:
+        #     return 200,response.json()
+        # else:
+        return response.status_code, response.text
 
     def execute_sparql_query_for_graph(self, graph_url, query):
         # 检查是否是 SELECT 查询，并插入 FROM 子句

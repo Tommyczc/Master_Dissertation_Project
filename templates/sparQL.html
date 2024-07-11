@@ -223,7 +223,7 @@
                         });
                     })
                     .catch(error => {
-                        this.$message.error("Error: "+error.response.data.error);
+                        this.$message.error("Error: "+error.message);
                         this.queryResult = [];
                         console.log("error: "+error.response.data.error);
                     });
