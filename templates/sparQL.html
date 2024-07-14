@@ -208,7 +208,8 @@
             executeQuery() {
                 axios.post('/sparQL_query', { query: this.sparqlQuery })
                     .then(response => {
-                        const data = response.data.success.results.bindings;
+                        console.log(response.data.success)
+                        const data = JSON.parse(response.data.success).results.bindings;
                         if (data.length > 0) {
                             this.columns = Object.keys(data[0]);
                         } else {
@@ -225,7 +226,7 @@
                     .catch(error => {
                         this.$message.error("Error: "+error.message);
                         this.queryResult = [];
-                        console.log("error: "+error.response.data.error);
+                        console.log("error: "+error.message);
                     });
             }
         }

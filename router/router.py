@@ -40,6 +40,9 @@ def detail(subpath):
     db_interface = current_app.config['DB_INTERFACE']
     data = db_interface.get_upload_record(subpath)
     if data is None:
-        redirect(url_for('/uploadHistory'))
+        return redirect(url_for('router.uploadHistory'))
+    jenaClient = current_app.config['JENA_CLIENT']
+    rdf_data = jenaClient.get_rdf_data_for_graph(subpath)
+    # print(rdf_data)
     # print(data)
-    return render_template('detail.html', name="Detail", insert_id=subpath, record=data)
+    return render_template('detail.html', name="Detail", insert_id=subpath, record=data, rdf_data=rdf_data)

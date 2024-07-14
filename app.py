@@ -1,10 +1,9 @@
 from flask import Flask
-from flask_socketio import SocketIO
-from router.router import router
-from requestHandler.handler import handler
-from mongoDB.mongoDB_client import init_db, MongoDBInterface
+
 from jena.fuseki_client import JenaClient
-import socket
+from mongoDB.mongoDB_client import init_db, MongoDBInterface
+from requestHandler.handler import handler
+from router.router import router
 
 app = Flask(__name__)
 
@@ -13,9 +12,11 @@ app.register_blueprint(router)
 app.register_blueprint(handler)
 
 # ini database connection
+# db, fs = init_db(
+#     'mongodb+srv://tommy:!project22558800@disser.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256'
+#     '&retrywrites=false&maxIdleTimeMS=120000')
 db, fs = init_db(
-    'mongodb+srv://tommy:!project22558800@disser.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256'
-    '&retrywrites=false&maxIdleTimeMS=120000')
+    "mongodb://localhost:27017")
 db_interface = MongoDBInterface(db, fs)
 # store db_interface object in app config
 app.config['DB_INTERFACE'] = db_interface

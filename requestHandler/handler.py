@@ -1,6 +1,7 @@
 import io
 
-from flask import Blueprint, request, jsonify, current_app, redirect, url_for, send_file
+from flask import Blueprint, request, jsonify, current_app, send_file
+from rdflib import Graph
 
 handler = Blueprint('handler', __name__)
 
@@ -67,7 +68,8 @@ def sparQL_query():
         jenaClient = current_app.config['JENA_CLIENT']
         res_code, res_content = jenaClient.execute_sparql_query_global(req['query'])
         if res_code >= 300:
-            return jsonify({"error": res_content}), res_code
+            return res_content, res_code
+        print(res_content)
         return jsonify({"success": res_content}), 200
     except Exception as e:
         print("Error: ", str(e))

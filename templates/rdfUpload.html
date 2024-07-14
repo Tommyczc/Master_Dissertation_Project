@@ -60,7 +60,7 @@
                     :on-change="handleChange"
                     :file-list="fileList"
                     :auto-upload="false"
-                    accept=".*">
+                    accept=".rdf, .xml, .ttl, .nt, .n3">
                     <el-button slot="trigger" size="small" type="primary">Select File</el-button>
                     <el-button size="small" type="success" @click="submitForm">Upload</el-button>
                 </el-upload>
