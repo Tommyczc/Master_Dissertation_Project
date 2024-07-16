@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, current_app, redirect, url_for
-
+from Common_tools import rdf_graph_visualization
 router = Blueprint('router', __name__)
 
 
@@ -35,6 +35,11 @@ def sparQL():
     return render_template('sparQL.html', name="sparQL")
 
 
+@router.route('/QASystem', methods=['get'])
+def QASystem():
+    return render_template('QA_System.html', name="Question & Answering")
+
+
 @router.route('/detail/<subpath>', methods=['get'])
 def detail(subpath):
     db_interface = current_app.config['DB_INTERFACE']
@@ -43,6 +48,7 @@ def detail(subpath):
         return redirect(url_for('router.uploadHistory'))
     jenaClient = current_app.config['JENA_CLIENT']
     rdf_data = jenaClient.get_rdf_data_for_graph(subpath)
+    rdf_base64_graph=rdf_graph_visualization.transfer_RDF_to_graph(rdf_data)
     # print(rdf_data)
     # print(data)
-    return render_template('detail.html', name="Detail", insert_id=subpath, record=data, rdf_data=rdf_data)
+    return render_template('detail.html', name="Detail", insert_id=subpath, record=data, rdf_data=rdf_data,graph=rdf_base64_graph)

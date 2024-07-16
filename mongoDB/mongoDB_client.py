@@ -98,3 +98,17 @@ class MongoDBInterface:
                 files_content.append(None)
 
         return files_content
+
+    def delete_record_by_id(self, record_id):
+        collection = self.db.upload_records
+        record = collection.find_one({'_id': ObjectId(record_id)})
+        if not record:
+            return False, "Record not found"
+
+        # 删除与记录关联的文件
+        for file_id in record['file_urls']:
+            self.fs.delete(ObjectId(file_id))
+
+        # 删除记录
+        collection.delete_one({'_id': ObjectId(record_id)})
+        return True, "Record deleted successfully"

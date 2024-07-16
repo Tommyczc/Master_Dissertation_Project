@@ -68,8 +68,9 @@ def sparQL_query():
         jenaClient = current_app.config['JENA_CLIENT']
         res_code, res_content = jenaClient.execute_sparql_query_global(req['query'])
         if res_code >= 300:
+            print("Error: ", res_code, res_content)
             return res_content, res_code
-        print(res_content)
+        # print(res_content)
         return jsonify({"success": res_content}), 200
     except Exception as e:
         print("Error: ", str(e))
@@ -91,17 +92,39 @@ def download_file(file_id):
 
 @handler.route('/deleteRDF_request/<file_id>', methods=['get'])
 def deleteRDF_request(file_id):
-    # try:
-    jenaClient = current_app.config['JENA_CLIENT']
-    code, text = jenaClient.delete_rdf_by_record_id(file_id)
-    print(code, text)
-    #todo: delete the record from mongodb
-    return jsonify({"error": text}), code
-    # if status_code >= 300:
-    #     print("error: ", text)
-    #     return jsonify({"error": text}), status_code
-    # else:
-    #     return jsonify({"success": True}), 200
-    # except Exception as e:
-    #     print("fail: ", str(e))
-    #     return jsonify({"error": str(e)}), 500
+    try:
+        # delete the rdf data from jena
+        jenaClient = current_app.config['JENA_CLIENT']
+        code, text = jenaClient.delete_rdf_by_record_id(file_id)
+        # print(code, text)
+        if code >= 300:
+            print("Error: ", code, text)
+            return jsonify({"error": text}), code
+
+        # delete the record and files from mongodb
+        db_interface = current_app.config['DB_INTERFACE']
+        result, text = db_interface.delete_record_by_id(file_id)
+        if result is False:
+            print("Error: ", result, text)
+            return jsonify({"error": text}), 500
+
+        return jsonify({"success": "record has been deleted."}), 200
+    except Exception as e:
+        print("fail: ", str(e))
+        return jsonify({"error": str(e)}), 500
+
+
+@handler.route('/sparQL_query_single_record/<subpath>', methods=['post'])
+def sparQL_query_single_record(subpath):
+    try:
+        req = request.get_json()
+        jenaClient = current_app.config['JENA_CLIENT']
+        res_code, res_text = jenaClient.execute_sparql_query_for_graph(subpath, req['query'])
+        if res_code >= 300:
+            print("Error: ", res_code, res_text)
+            return jsonify({"error": res_text}), res_code
+        return jsonify({"success": res_text}), 200
+
+    except Exception as e:
+        print("Error: ", str(e))
+        return jsonify({"error": str(e)}), 500

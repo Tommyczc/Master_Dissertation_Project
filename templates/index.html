@@ -73,13 +73,14 @@
             <el-menu-item index="0">Welcome</el-menu-item>
             <el-menu-item index="1">Share your RDF</el-menu-item>
             <el-menu-item index="2">Upload History</el-menu-item>
-            <el-menu-item index="3">SparQL</el-menu-item>
-            <el-menu-item index="4">About</el-menu-item>
 
-    {#        <el-submenu index="4">#}
-    {#            <template slot="title">UserName: [(${userName})]</template>#}
-    {#            <el-menu-item index="4-1">Log Out</el-menu-item>#}
-    {#        </el-submenu>#}
+            <el-submenu index="3">
+                <template slot="title">Search Data(Global)</template>
+                <el-menu-item index="3-1">SparQL</el-menu-item>
+                <el-menu-item index="3-2">Question & Answering</el-menu-item>
+            </el-submenu>
+
+            <el-menu-item index="4">About</el-menu-item>
         </el-menu>
      </div>
     <!-- iframe用于展示内容 -->
@@ -137,9 +138,13 @@
                         this.iframeUrl = '/uploadHistory';
                         previousUrl.set("clientLastURL",'/uploadHistory');
                         break;
-                    case '3':
+                    case '3-1':
                         this.iframeUrl = '/sparQL';
                         previousUrl.set("clientLastURL",'/sparQL');
+                        break;
+                    case '3-2':
+                        this.iframeUrl = '/QASystem';
+                        previousUrl.set("clientLastURL",'/QASystem');
                         break;
                     case '4':
                         this.iframeUrl = '/about';

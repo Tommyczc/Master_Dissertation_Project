@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+    <!-- import vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- import Element UI style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
+    <!-- import Element UI ui lib -->
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//unpkg.com/vue@2"></script>
+    <script src="//unpkg.com/element-ui"></script>
+    <script src="//unpkg.com/element-ui/lib/umd/locale/en.js"></script>
+    <script src="{{ url_for('static', filename='js/commonUtils.js') }}"></script>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chat-container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .messages {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="chat-container">
+        <el-card>
+            <h1>Flask SocketIO Chat</h1>
+            <div class="messages" id="messages"></div>
+            <el-input v-model="message" placeholder="Type a message..."></el-input>
+            <el-button type="primary" @click="sendMessage">Send</el-button>
+        </el-card>
+    </div>
+</body>
+<script>
+
+        Vue.config.delimiters = ['[[', ']]']
+        new Vue({
+            el: '#app',
+            data: {
+                socket: null,
+                message: '',
+            },
+            created() {
+                this.socket = io();
+
+                this.socket.on('answer', (data) => {
+                    console.log('Received response:', data);
+                    this.addMessage('Server', data.message);
+                });
+            },
+            methods: {
+                sendMessage() {
+                    if (this.message) {
+                        {#console.log(this.message)#}
+                        this.addMessage('You', this.message);
+                        this.socket.emit('question', { message: this.message });
+                        this.message = '';
+                    }
+                },
+                addMessage(sender, message) {
+                    const messagesDiv = document.getElementById('messages');
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+                    messagesDiv.appendChild(messageDiv);
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+            }
+        });
+    </script>
+</html>

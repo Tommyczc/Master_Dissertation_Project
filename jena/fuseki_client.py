@@ -99,10 +99,11 @@ class JenaClient:
         }}
         """
         response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': query}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
-        if response.status_code == 200:
+        if response.status_code < 300:
             g = Graph()
             g.parse(data=response.text, format='n3')
             triples = [(str(s), str(p), str(o)) for s, p, o in g]
+            # print(triples)
             return triples
         else:
             return None
