@@ -15,11 +15,11 @@
     <script src="//unpkg.com/vue@2"></script>
     <script src="//unpkg.com/element-ui"></script>
     <script src="//unpkg.com/element-ui/lib/umd/locale/en.js"></script>
-    <!-- import D3.js -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
     <!-- import Socket.IO -->
     <script src="https://cdn.jsdelivr.net/npm/socket.io/dist/socket.io.js"></script>
     <script src="{{ url_for('static', filename='js/commonUtils.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
 
     <style>
         .node circle {
@@ -32,21 +32,29 @@
             font: 10px sans-serif;
             pointer-events: none;
         }
-
-        .graph-container {
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            border: 1px solid lightgray;
+            margin: 20px auto;
+        }
+        .dialog-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40%;
-            height: 20%;
-            margin: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            height: 90vh; /* 90% of the viewport height */
+            width: 100%;
+
         }
-        .graph-container img {
-            max-width: 100%;
-            max-height: 100%;
+        .el-dialog__body {
+            padding: 0;
+        }
+        .back-button {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -54,7 +62,12 @@
 <body>
 
 <div id="app">
+
     <el-card>
+        <div class="back-button">
+            <el-button type="primary" icon="el-icon-arrow-left" circle @click="goBack" ></el-button>
+        </div>
+
         <h2><strong>Title:</strong> {{ record.title }}</h2>
         <p><strong>Description:</strong> {{ record.description }}</p>
         <p><strong>Upload Time:</strong> {{ record.created_at }}</p>
@@ -68,13 +81,7 @@
         </el-table>
 
         <el-button type="danger" @click="confirmDelete">Delete This Record</el-button>
-
-        <!-- Knowledge Graph Visualization -->
-        <div id="graph-container">
-            <h3>Knowledge Graph</h3>
-{#            <div id="graph" style="width: fit-content; height: fit-content; margin-top: 20px;"></div>#}
-             <img src="data:image/png;base64,{{ graph }}" alt="Knowledge Graph" style=" margin-top: 20px;">
-        </div>
+        <el-button type="primary" @click="openDialog">Generate Knowledge Graph</el-button>
 
         <el-input v-model="sparqlQuery" type="textarea" placeholder="Enter SPARQL query" rows="6" style="margin-top: 20px;"></el-input>
         <el-button type="success" @click="executeQuery">Execute Query (only for this upload record)</el-button>
@@ -97,7 +104,19 @@
             </span>
         </el-dialog>
 
+
     </el-card>
+
+    <el-dialog :visible.sync="graphDialogVisible" width="90%">
+            <span slot="title">Knowledge Graph</span>
+            <div class="dialog-content">
+                <div id="mynetwork"></div>
+            </div>
+            <el-button type="primary" @click="downloadImage">Download Image</el-button>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="graphDialogVisible = false">Close</el-button>
+            </span>
+    </el-dialog>
 </div>
 
 </body>
@@ -112,7 +131,9 @@
             sparqlQuery: 'SELECT * WHERE { ?sub ?pred ?obj .}',
             queryResult: null,
             columns: [],
-            dialogVisible: false
+            dialogVisible: false,
+            graphDialogVisible: false,
+            network: null
         },
         mounted() {
             {#console.log(this.record_id)#}
@@ -120,7 +141,7 @@
             {#console.log(this.rdf_data)#}
 
             setCurrentURL("/detail/"+this.record_id)
-            this.drawGraph();
+
         },
         methods: {
             downloadFile(file) {
@@ -168,90 +189,53 @@
                     });
                 this.dialogVisible = false;
             },
-            /*
-            drawGraph() {
-                const width = 960,
-                      height = 600;
-
-                const svg = d3.select("#graph").append("svg")
-                    .attr("width", width)
-                    .attr("height", height);
-
-                const simulation = d3.forceSimulation()
-                    .force("link", d3.forceLink().id(d => d.id))
-                    .force("charge", d3.forceManyBody().strength(-400))
-                    .force("center", d3.forceCenter(width / 2, height / 2));
-
-                const graph = this.parseRDF(this.rdf_data);
-
-                const link = svg.append("g")
-                    .attr("class", "links")
-                    .selectAll("line")
-                    .data(graph.links)
-                    .enter().append("line")
-                    .attr("class", "link");
-
-                const node = svg.append("g")
-                    .attr("class", "nodes")
-                    .selectAll("g")
-                    .data(graph.nodes)
-                    .enter().append("g")
-                    .on("mouseover", mouseOver)
-                    .on("mouseout", mouseOut);
-
-                node.append("circle")
-                    .attr("r", 5)
-                    .attr("fill", "blue");
-
-                node.append("text")
-                    .attr("x", 6)
-                    .attr("y", 3)
-                    .text(d => d.id)
-                    .style("visibility", "hidden");
-
-                simulation
-                    .nodes(graph.nodes)
-                    .on("tick", ticked);
-
-                simulation.force("link")
-                    .links(graph.links);
-
-                function ticked() {
-                    link
-                        .attr("x1", d => d.source.x)
-                        .attr("y1", d => d.source.y)
-                        .attr("x2", d => d.target.x)
-                        .attr("y2", d => d.target.y);
-
-                    node
-                        .attr("transform", d => `translate(${d.x},${d.y})`);
-                }
-
-                function mouseOver(event, d) {
-                    d3.select(this).select("text").style("visibility", "visible");
-                }
-
-                function mouseOut(event, d) {
-                    d3.select(this).select("text").style("visibility", "hidden");
+            openDialog() {
+                    this.graphDialogVisible = true;
+                    this.fetchGraphData();
+            },
+            fetchGraphData() {
+                    axios.get(`/generate_graph/${this.record_id}`)
+                        .then(response => response.data)
+                        .then(data => {
+                            this.renderGraph(data.nodes, data.edges);
+                        });
+                },
+            renderGraph(nodes, edges) {
+                const container = document.getElementById('mynetwork');
+                const data = {
+                    nodes: new vis.DataSet(nodes),
+                    edges: new vis.DataSet(edges)
+                };
+                const options = {
+                    autoResize: true,
+                    layout: {
+                        improvedLayout: true
+                    },
+                    physics: {
+                        enabled: true,
+                        barnesHut: {
+                            gravitationalConstant: -8000,
+                            springLength: 250,
+                            springConstant: 0.001
+                        }
+                    }
+                };
+                this.network = new vis.Network(container, data, options);
+            },
+            downloadImage() {
+                const canvas = document.getElementById('mynetwork').querySelector('canvas');
+                if (canvas) {
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL();
+                    link.download = 'knowledge_graph.png';
+                    link.click();
+                } else {
+                    this.$message.error('Canvas not found');
                 }
             },
-
-            parseRDF(rdf_data) {
-                const nodes = new Set();
-                const links = [];
-
-                rdf_data.forEach(([s, p, o]) => {
-                    nodes.add(s);
-                    nodes.add(o);
-                    links.push({ source: s, target: o, predicate: p });
-                });
-
-                return {
-                    nodes: Array.from(nodes).map(id => ({ id })),
-                    links
-                };
-            }
-             */
+            goBack() {
+                window.location.href = '/uploadHistory';
+            },
         }
     });
     ELEMENT.locale(ELEMENT.lang.en);

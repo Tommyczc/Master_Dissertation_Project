@@ -65,6 +65,7 @@
                     <el-button size="small" type="success" @click="submitForm">Upload</el-button>
                 </el-upload>
             </el-form-item>
+            <el-progress v-if="uploading" :percentage="uploadPercentage"></el-progress>
         </el-form>
     </div>
 </div>
@@ -86,7 +87,9 @@
                 file: [
                     { required: true, message: 'File is required', trigger: 'change' }
                 ]
-            }
+            },
+            uploading: false,
+            uploadPercentage: 0,
         },
         methods: {
             handleChange(file, fileList) {
@@ -105,21 +108,26 @@
                             formData.append('rdf_files', file.raw);
                         });
 
-
+                        this.uploading = true;
                         axios.post('/uploadRDF_request', formData, {
                             headers: {
                                 'Content-Type': 'multipart/form-data',
                             },
+                            onUploadProgress: (progressEvent) => {
+                                this.uploadPercentage = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                            }
                         })
                         .then(response => {
                             {#alert('File uploaded successfully: ' + response.data.record_id);#}
-                            console.log('insert_id:  '+response.data.success)
+                            {#console.log('insert_id:  '+response.data.success)#}
+                            this.uploading = false;
                             this.$message.success('File uploaded successfully');
                             console.log(response.data)
                             window.location.href='/detail/'+response.data.success
                         })
                         .catch(error => {
                             {#alert('Error uploading file: ' + (error.response.data.error || error.message));#}
+                            this.uploading = false;
                             this.$message.error('Error uploading file: ' + (error.response.data.error || error.message))
                         });
                     } else {

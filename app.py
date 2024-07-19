@@ -8,6 +8,7 @@ from router.router import router
 
 app = Flask(__name__)
 
+# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
 ## register blueprint
 app.register_blueprint(router)
 app.register_blueprint(handler)

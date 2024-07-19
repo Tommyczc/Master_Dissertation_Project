@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, current_app, redirect, url_for
-from Common_tools import rdf_graph_visualization
+
 router = Blueprint('router', __name__)
 
 
@@ -46,9 +46,4 @@ def detail(subpath):
     data = db_interface.get_upload_record(subpath)
     if data is None:
         return redirect(url_for('router.uploadHistory'))
-    jenaClient = current_app.config['JENA_CLIENT']
-    rdf_data = jenaClient.get_rdf_data_for_graph(subpath)
-    rdf_base64_graph=rdf_graph_visualization.transfer_RDF_to_graph(rdf_data)
-    # print(rdf_data)
-    # print(data)
-    return render_template('detail.html', name="Detail", insert_id=subpath, record=data, rdf_data=rdf_data,graph=rdf_base64_graph)
+    return render_template('detail.html', name="Detail", insert_id=subpath, record=data)

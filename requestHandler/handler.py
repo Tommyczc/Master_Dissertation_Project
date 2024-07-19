@@ -1,7 +1,7 @@
 import io
 
 from flask import Blueprint, request, jsonify, current_app, send_file
-from rdflib import Graph
+from Common_tools import rdf_graph_visualization
 
 handler = Blueprint('handler', __name__)
 
@@ -26,7 +26,9 @@ def uploadRDF_request():
         ## upload the record to mongodb
         data = {'title': title, 'description': description, 'file_urls': file_paths}
         insert_id, code = db_interface.create_upload_record(data)
+        # print("insert id:",insert_id)
         if code != 200:
+            print("error: could not create upload record in mongodb")
             return jsonify({"error": code}), 400
 
         ## upload the rdf file to jena server
@@ -50,7 +52,8 @@ def uploadRDF_request():
 
         jenaClient = current_app.config['JENA_CLIENT']
         res_code, res_content = jenaClient.upload_rdf_files(rdf_data_list, insert_id)
-        if res_code >= 300:
+        if res_code != 200:
+            # print("error: {}".format(res_content))
             return jsonify({"error": res_content}), res_code
 
         # print("upload success, id: {}".format(insert_id))
@@ -128,3 +131,11 @@ def sparQL_query_single_record(subpath):
     except Exception as e:
         print("Error: ", str(e))
         return jsonify({"error": str(e)}), 500
+
+
+@handler.route('/generate_graph/<subpath>', methods=['GET'])
+def generate_graph(subpath):
+    jenaClient = current_app.config['JENA_CLIENT']
+    rdf_data = jenaClient.get_rdf_data_for_graph(subpath)
+    nodes, edges = rdf_graph_visualization.transfer_RDF_to_graph(rdf_data)
+    return jsonify(nodes=nodes, edges=edges)

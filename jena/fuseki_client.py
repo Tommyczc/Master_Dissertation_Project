@@ -13,17 +13,18 @@ class JenaClient:
     def upload_rdf_files(self, rdf_files, record_id):
         named_graph_uri = record_id
         headers = {'Content-Type': 'application/sparql-update'}
-
+        print("current id: ", named_graph_uri)
         for rdf_file in rdf_files:
             rdf_data = rdf_file['content']
             rdf_format = rdf_file['type']
-
+            print("update id: ", named_graph_uri)
             # 使用 rdflib 解析 RDF 数据
             g = Graph()
             g.parse(data=rdf_data, format=rdf_format)
 
             # 将解析后的 RDF 数据转换为 N-Triples 格式
             ntriples_data = g.serialize(format='nt')
+
             # print(ntriples_data)
             # 构建 SPARQL UPDATE 查询
             update_query = f"""
@@ -33,9 +34,12 @@ class JenaClient:
                 }}
             }}
             """
+
+
             response = requests.post(f"{self.jena_url}/{self.dataset}/update", data=update_query.encode('utf-8'),
                                      headers=headers)
             if response.status_code >= 300:
+                print("error: ", response.status_code)
                 return response.status_code, response.text
 
         return 200, "RDF files uploaded successfully"
