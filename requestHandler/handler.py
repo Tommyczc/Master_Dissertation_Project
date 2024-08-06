@@ -2,6 +2,7 @@ import io
 
 from flask import Blueprint, request, jsonify, current_app, send_file
 from Common_tools import rdf_tools
+from socket_for_QA import socket_handler
 
 handler = Blueprint('handler', __name__)
 
@@ -56,6 +57,8 @@ def uploadRDF_request():
             # print("error: {}".format(res_content))
             return jsonify({"error": res_content}), res_code
 
+        # update the data in llama
+        socket_handler.llama.generate_system_message()
         # print("upload success, id: {}".format(insert_id))
         return jsonify({"success": insert_id}), 200
 

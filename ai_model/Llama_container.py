@@ -39,5 +39,7 @@ class LlamaContainer:
                 f"You are a knowledgeable assistant who answers questions based on the provided data, "
                 f"If the user's question is out of scope for this dataset, you should only answer: Sorry, this question is out of scope."
                 f"\n\nHere is the data:\n{rdf_to_nl}")
+            print("The system message has been generated/updated")
         else:
             self.system_message = "There was an error in database, if user ask questions, you should answer: Database error, Please tell the relevant personnel to deal with it"
+            print(f"Error: Could not generate system message\ncode: {code}\ntext: {text}")
