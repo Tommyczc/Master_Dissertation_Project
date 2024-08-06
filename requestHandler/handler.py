@@ -1,7 +1,7 @@
 import io
 
 from flask import Blueprint, request, jsonify, current_app, send_file
-from Common_tools import rdf_graph_visualization
+from Common_tools import rdf_tools
 
 handler = Blueprint('handler', __name__)
 

@@ -60,12 +60,12 @@ class JenaClient:
         # 检查是否是 SELECT 查询，并插入 FROM 子句
         wrapped_query=''
         if query.strip().lower().startswith("select"):
-            select_index = query.lower().find("select")
+            # select_index = query.lower().find("select")
             where_index = query.lower().find("where")
             wrapped_query = query[:where_index] + " " + from_clauses + " " + query[where_index:]
         else:
             wrapped_query = query  # 对于非 SELECT 查询，我们不做任何修改
-        # print(wrapped_query)
+        print(wrapped_query)
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': wrapped_query.encode('utf-8')},
                                  headers=headers)
@@ -104,6 +104,7 @@ class JenaClient:
         """
         response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': query}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
         if response.status_code < 300:
+            print(response.text)
             g = Graph()
             g.parse(data=response.text, format='n3')
             triples = [(str(s), str(p), str(o)) for s, p, o in g]
