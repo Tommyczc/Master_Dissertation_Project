@@ -20,7 +20,7 @@
     <script src="{{ url_for('static', filename='js/commonUtils.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
-
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <style>
         .node circle {
             fill: #fff;
@@ -67,7 +67,7 @@
         <div class="back-button">
             <el-button type="primary" icon="el-icon-arrow-left" circle @click="goBack" ></el-button>
         </div>
-
+        <h2><strong>Upload By:</strong> {{ record.username }}</h2>
         <h2><strong>Title:</strong> {{ record.title }}</h2>
         <p><strong>Description:</strong> {{ record.description }}</p>
         <p><strong>Upload Time:</strong> {{ record.created_at }}</p>
@@ -82,6 +82,11 @@
 
         <el-button type="danger" @click="confirmDelete">Delete This Record</el-button>
         <el-button type="primary" @click="openDialog">Generate Knowledge Graph</el-button>
+        <br>
+        <el-select v-model="queryType" placeholder="Select query type" style="margin-top: 20px; width: 200px;">
+            <el-option label="Query" value="query"></el-option>
+            <el-option label="Update Query" value="update_query"></el-option>
+        </el-select>
 
         <el-input v-model="sparqlQuery" type="textarea" placeholder="Enter SPARQL query" rows="6" style="margin-top: 20px;"></el-input>
         <el-button type="success" @click="executeQuery">Execute Query (only for this upload record)</el-button>
@@ -133,7 +138,9 @@
             columns: [],
             dialogVisible: false,
             graphDialogVisible: false,
-            network: null
+            network: null,
+            socket:null,
+            queryType: 'query',
         },
         mounted() {
             {#console.log(this.record_id)#}
@@ -143,16 +150,48 @@
             setCurrentURL("/detail/"+this.record_id)
 
         },
+        created() {
+                this.socket = io('/rdf_local', {query: `graph_uri=${this.record_id}`});
+
+
+                this.socket.on('answer', (data) => {
+                    console.log(data);
+                    this.columns=['Subject','Object','Predicate']
+                    this.queryResult=data
+                    {#this.addMessage('Server', data.message);#}
+                });
+
+                this.socket.on('success', (message) => {
+                    console.log(message);
+                    this.$message.success(message);
+                });
+
+                this.socket.on('error', (message) => {
+                    console.log(message);
+                    this.$message.error(message);
+                });
+            },
         methods: {
             downloadFile(file) {
                 window.location.href = `/download/${file}`;
             },
 
+            executeQuery(){
+                this.queryResult= null
+                this.columns= []
+                if (this.queryType === 'query') {
+                    this.socket.emit('query', {query: this.sparqlQuery})
+                }
+                else{
+                    this.socket.emit('update_query', {update_query: this.sparqlQuery})
+                }
+            },
 
+            /*
             executeQuery() {
                 axios.post(`/sparQL_query_single_record/${this.record_id}`, { query: this.sparqlQuery })
                     .then(response => {
-                        console.log(response.data.success)
+                        {#console.log(response.data.success)#}
                         const data = JSON.parse(response.data.success).results.bindings;
                         if (data.length > 0) {
                             this.columns = Object.keys(data[0]);
@@ -166,6 +205,7 @@
                             }
                             return result;
                         });
+                        console.log(this.queryResult)
                     })
                     .catch(error => {
                         this.$message.error("Error: "+error.message);
@@ -173,6 +213,7 @@
                         console.log("error: "+error.message);
                     });
             },
+            */
 
 
             confirmDelete() {

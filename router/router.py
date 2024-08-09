@@ -1,4 +1,5 @@
 from flask import render_template, Blueprint, current_app, redirect, url_for
+from flask_login import login_required
 
 router = Blueprint('router', __name__)
 
@@ -14,6 +15,7 @@ def main():
 
 
 @router.route('/uploadRDF', methods=['get'])
+@login_required
 def upload():
     return render_template('rdfUpload.html', name="Upload")
 
@@ -22,6 +24,7 @@ def upload():
 def uploadHistory():
     db_interface = current_app.config['DB_INTERFACE']
     allRecords = db_interface.get_all_records()
+    # print(allRecords)
     return render_template('uploadHistory.html', name="History", records=allRecords)
 
 

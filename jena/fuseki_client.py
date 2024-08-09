@@ -13,11 +13,11 @@ class JenaClient:
     def upload_rdf_files(self, rdf_files, record_id):
         named_graph_uri = record_id
         headers = {'Content-Type': 'application/sparql-update'}
-        print("current id: ", named_graph_uri)
+        # print("current id: ", named_graph_uri)
         for rdf_file in rdf_files:
             rdf_data = rdf_file['content']
             rdf_format = rdf_file['type']
-            print("update id: ", named_graph_uri)
+            # print("update id: ", named_graph_uri)
             # 使用 rdflib 解析 RDF 数据
             g = Graph()
             g.parse(data=rdf_data, format=rdf_format)
@@ -34,7 +34,6 @@ class JenaClient:
                 }}
             }}
             """
-
 
             response = requests.post(f"{self.jena_url}/{self.dataset}/update", data=update_query.encode('utf-8'),
                                      headers=headers)
@@ -58,14 +57,14 @@ class JenaClient:
         from_clauses = " ".join([f"FROM <{graph_uri}>" for graph_uri in graph_uris])
 
         # 检查是否是 SELECT 查询，并插入 FROM 子句
-        wrapped_query=''
+        wrapped_query = ''
         if query.strip().lower().startswith("select"):
             # select_index = query.lower().find("select")
             where_index = query.lower().find("where")
             wrapped_query = query[:where_index] + " " + from_clauses + " " + query[where_index:]
         else:
             wrapped_query = query  # 对于非 SELECT 查询，我们不做任何修改
-        print(wrapped_query)
+        # print(wrapped_query)
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': wrapped_query.encode('utf-8')},
                                  headers=headers)
@@ -102,9 +101,10 @@ class JenaClient:
             }}
         }}
         """
-        response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': query}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+        response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': query},
+                                 headers={'Content-Type': 'application/x-www-form-urlencoded'})
         if response.status_code < 300:
-            print(response.text)
+            # print(response.text)
             g = Graph()
             g.parse(data=response.text, format='n3')
             triples = [(str(s), str(p), str(o)) for s, p, o in g]
@@ -134,3 +134,27 @@ class JenaClient:
 
         return response.status_code, response.text
 
+    def recover_rdf_by_graph_uri(self, graph_uri, g):
+        del_code, del_text = self.delete_rdf_by_record_id(graph_uri)
+        print(del_code, del_text)
+        if del_code >= 300:
+            return del_text
+
+        headers = {'Content-Type': 'application/sparql-update'}
+        ntriples_data = g.serialize(format='nt')
+
+        # print(ntriples_data)
+        # 构建 SPARQL UPDATE 查询
+        update_query = f"""
+                    INSERT DATA {{
+                        GRAPH <{graph_uri}> {{
+                            {ntriples_data}
+                        }}
+                    }}
+                    """
+
+        response = requests.post(f"{self.jena_url}/{self.dataset}/update", data=update_query.encode('utf-8'),
+                                 headers=headers)
+        if response.status_code >= 300:
+            return response.text
+        return None

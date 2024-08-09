@@ -4,6 +4,7 @@ from marshmallow import ValidationError
 from bson.objectid import ObjectId
 from datetime import datetime
 from mongoDB.schema.upload_record import UploadRecordSchema
+from security.models import User
 
 
 def init_db(connection_string):
@@ -57,6 +58,8 @@ class MongoDBInterface:
         result = []
         for record in records:
             result.append({
+                "username": record.get('username'),
+                "user_id": record.get('user_id'),
                 "title": record.get("title"),
                 "description": record.get("description"),
                 "created_at": record.get("created_at"),
@@ -112,3 +115,24 @@ class MongoDBInterface:
         # 删除记录
         collection.delete_one({'_id': ObjectId(record_id)})
         return True, "Record deleted successfully"
+
+    def get_username_by_record_id(self, record_id):
+        collection = self.db.upload_records
+        record = collection.find_one({'_id': ObjectId(record_id)})
+        return record['username']
+
+    #-----------------------user function--------------------
+    def get_user_by_id(self, user_id):
+        user_data=self.db.users.find_one({"_id": ObjectId(user_id)})
+        return User(user_data) if user_data else None
+
+    def find_by_username(self,username):
+        user_data = self.db.users.find_one({"username": username})
+        return User(user_data) if user_data else None
+
+    def create_user(self, username, password):
+        return self.db.users.insert_one({
+            'username': username,
+            'password': password,
+            'roles': "user"
+        })

@@ -1,10 +1,15 @@
 from flask import Flask
+from flask_login import LoginManager, current_user
+from flask_principal import Principal, identity_loaded, UserNeed, RoleNeed
 from flask_socketio import SocketIO
+
+from security.models import User
 from socket_for_QA import socket_handler
 from jena.fuseki_client import JenaClient
 from mongoDB.mongoDB_client import init_db, MongoDBInterface
 from requestHandler.handler import handler
 from router.router import router
+from security.auth import auth_bp
 
 app = Flask(__name__)
 
@@ -12,6 +17,7 @@ app = Flask(__name__)
 ## register blueprint
 app.register_blueprint(router)
 app.register_blueprint(handler)
+app.register_blueprint(auth_bp)
 
 # ini database connection
 # db, fs = init_db(
@@ -36,6 +42,25 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 socket_handler.socketio = socketio
 socket_handler.register_handlers()
+
+login_manager = LoginManager(app)
+principals = Principal(app)
+login_manager.login_view = "auth.signIn"
+@login_manager.user_loader
+def load_user(user_id):
+
+    user_data = db_interface.get_user_by_id(user_id)
+    return user_data
+
+# @identity_loaded.connect_via(app)
+# def on_identity_loaded(sender, identity):
+#     identity.user = current_user
+#     if hasattr(current_user, 'id'):
+#         identity.provides.add(UserNeed(current_user.id))
+#     if hasattr(current_user, 'roles'):
+#         for role in current_user.roles:
+#             identity.provides.add(RoleNeed(role))
+
 
 if __name__ == '__main__':
     # app.run()

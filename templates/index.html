@@ -81,6 +81,14 @@
             </el-submenu>
 
             <el-menu-item index="4">About</el-menu-item>
+            {% if current_user.is_authenticated %}
+                <el-submenu index="5">
+                    <template slot="title">{{ current_user.username }}</template>
+                    <el-menu-item @click="logout" index="5-2">Log out</el-menu-item>
+                </el-submenu>
+            {% else %}
+                <el-menu-item index="5" @click="redirectToLogin">Login</el-menu-item>
+            {% endif %}
         </el-menu>
      </div>
     <!-- iframe用于展示内容 -->
@@ -160,10 +168,21 @@
                         break;
                 }
             },
-            logout(){
-
+            redirectToLogin() {
+                this.iframeUrl = '/signIn';
+            },
+            logout() {
+                axios.get('/logout')
+                    .then(response => {
+                        console.log(response.data)
+                        top.location.reload();
+                    })
+                    .catch(error => {
+                        console.error("There was an error logging out:", error);
+                    });
             }
-        }
+        },
+
     });
     ELEMENT.locale(ELEMENT.lang.en)
 </script>

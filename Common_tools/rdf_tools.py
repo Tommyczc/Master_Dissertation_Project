@@ -17,8 +17,9 @@ def transfer_RDF_to_graph(triples):
     edges = [{'from': u, 'to': v, 'label': data['label'], 'title': data['label']} for u, v, data in G.edges(data=True)]
     return nodes, edges
 
+
 # transfer the rdf data from jena to natural language
-def rdf_to_natural_language(text:str):
+def rdf_to_natural_language(text: str):
     json_object = json.loads(text)
     rdf_data = json_object['results']['bindings']
     descriptions = []

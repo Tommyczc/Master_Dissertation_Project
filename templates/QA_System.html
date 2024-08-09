@@ -58,7 +58,7 @@
                 message: '',
             },
             created() {
-                this.socket = io();
+                this.socket = io('/KGQA');
 
                 this.socket.on('answer', (data) => {
                     console.log('Received response:', data);

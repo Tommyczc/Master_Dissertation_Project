@@ -1,6 +1,8 @@
 import io
 
 from flask import Blueprint, request, jsonify, current_app, send_file
+from flask_login import login_required, current_user
+
 from Common_tools import rdf_tools
 from socket_for_QA import socket_handler
 
@@ -8,12 +10,15 @@ handler = Blueprint('handler', __name__)
 
 
 @handler.route('/uploadRDF_request', methods=['post'])
+@login_required
 def uploadRDF_request():
     try:
         title = request.form.get('title')
         description = request.form.get('description')
         rdf_files = request.files.getlist('rdf_files')
-
+        user = current_user
+        user_id = user.id
+        username = user.username
         if not title or not rdf_files:
             return jsonify({"error": "Title and RDF file are required"}), 400
 
@@ -25,7 +30,8 @@ def uploadRDF_request():
         # print("path: ", file_paths)
 
         ## upload the record to mongodb
-        data = {'title': title, 'description': description, 'file_urls': file_paths}
+        data = {'title': title, 'description': description, 'file_urls': file_paths, 'user_id': user_id,
+                'username': username}
         insert_id, code = db_interface.create_upload_record(data)
         # print("insert id:",insert_id)
         if code != 200:
@@ -140,5 +146,5 @@ def sparQL_query_single_record(subpath):
 def generate_graph(subpath):
     jenaClient = current_app.config['JENA_CLIENT']
     rdf_data = jenaClient.get_rdf_data_for_graph(subpath)
-    nodes, edges = rdf_graph_visualization.transfer_RDF_to_graph(rdf_data)
+    nodes, edges = rdf_tools.transfer_RDF_to_graph(rdf_data)
     return jsonify(nodes=nodes, edges=edges)

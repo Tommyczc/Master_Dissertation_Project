@@ -39,6 +39,7 @@
     ></el-input>
     <div class="table-container">
         <el-table :data="filteredRecords" @row-click="handleRowClick">
+            <el-table-column prop="username" label="Upload By"></el-table-column>
             <el-table-column prop="title" label="Title"></el-table-column>
             <el-table-column prop="description" label="Description"></el-table-column>
             <el-table-column prop="created_at" label="Upload Time" :formatter="formatDate"></el-table-column>
@@ -64,7 +65,7 @@
                 }
             },
             mounted() {
-                {#console.log(this.data.records)#}
+                console.log(this.data.records)
             },
             methods: {
                 formatDate(row, column, cellValue) {
