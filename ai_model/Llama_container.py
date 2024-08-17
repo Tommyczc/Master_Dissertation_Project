@@ -9,7 +9,7 @@ class LlamaContainer:
         self.model = None
         self.tokenizer = None
         self.system_message = ''
-        self.max_tokens = 150
+        self.max_tokens = 50
 
     def initialize_model(self):
         with current_app.app_context():

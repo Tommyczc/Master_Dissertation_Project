@@ -158,3 +158,12 @@ class JenaClient:
         if response.status_code >= 300:
             return response.text
         return None
+
+    def execute_simple_query(self, query):
+
+        response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': query},
+                                 headers={'Content-Type': 'application/x-www-form-urlencoded'})
+        if response.status_code < 300:
+            return response.text
+        else:
+            return None
