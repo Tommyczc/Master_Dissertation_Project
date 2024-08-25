@@ -1,8 +1,8 @@
 from flask import request, current_app
-from flask_login import current_user, AnonymousUserMixin
+from flask_login import current_user
 from flask_socketio import emit, SocketIO
 
-from Common_tools.rdflib_graph_manager import graph_manager
+from jena.rdflib_graph_manager import graph_manager
 from ai_model.Llama_container import LlamaContainer
 
 socketio = SocketIO()
