@@ -1,0 +1,15 @@
+Flask==3.0.3
+Flask_Login==0.6.3
+Flask_Principal==0.4.0
+Flask_SocketIO==5.3.6
+marshmallow==3.22.0
+mlx_lm==0.16.1
+networkx==3.3
+pyfuseki==1.6
+pymongo==4.8.0
+python-socketio==5.11.4
+pyvis==0.3.1
+rdflib==7.0.0
+Requests==2.32.3
+SPARQLWrapper==2.0.0
+

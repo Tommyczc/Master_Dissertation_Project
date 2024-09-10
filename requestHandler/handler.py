@@ -22,8 +22,6 @@ def uploadRDF_request():
         if not title or not rdf_files:
             return jsonify({"error": "Title and RDF file are required"}), 400
 
-        ##todo: add mongodb session rollback, if fuseki return error response, then rollback the data
-
         ## upload the file to mongodb
         db_interface = current_app.config['DB_INTERFACE']
         file_paths = db_interface.upload_file(rdf_files)

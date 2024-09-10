@@ -19,15 +19,12 @@ class JenaClient:
             rdf_data = rdf_file['content']
             rdf_format = rdf_file['type']
             # print("update id: ", named_graph_uri)
-            # 使用 rdflib 解析 RDF 数据
             g = Graph()
             g.parse(data=rdf_data, format=rdf_format)
 
-            # 将解析后的 RDF 数据转换为 N-Triples 格式
             ntriples_data = g.serialize(format='nt')
 
             # print(ntriples_data)
-            # 构建 SPARQL UPDATE 查询
             update_query = f"""
             INSERT DATA {{
                 GRAPH <{named_graph_uri}> {{
@@ -67,13 +64,13 @@ class JenaClient:
             return 500, str(e)
 
     # def execute_sparql_query_for_graph(self, graph_url, query):
-    #     # 检查是否是 SELECT 查询，并插入 FROM 子句
+    #     # check whether select query
     #     if query.strip().lower().startswith("select"):
     #         select_index = query.lower().find("select")
     #         where_index = query.lower().find("where")
     #         wrapped_query = query[:where_index] + f" FROM <{graph_url}> " + query[where_index:]
     #     else:
-    #         wrapped_query = query  # 对于非 SELECT 查询，我们不做任何修改
+    #         wrapped_query = query  # do not make change for not select query
     #
     #     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     #     response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': wrapped_query},
@@ -135,7 +132,6 @@ class JenaClient:
         ntriples_data = g.serialize(format='nt')
 
         # print(ntriples_data)
-        # 构建 SPARQL UPDATE 查询
         update_query = f"""
                     INSERT DATA {{
                         GRAPH <{graph_uri}> {{

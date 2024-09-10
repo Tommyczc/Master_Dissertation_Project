@@ -30,4 +30,4 @@ This project must run on an ARM architecture (e.g. MacOS) system and relies on P
 5. Run the project `python app.py`
 
 ## Others
-
+`Github`: https://github.com/Tommyczc/Master_Dissertation_Project
