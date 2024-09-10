@@ -32,7 +32,7 @@ class LlamaContainer:
 
     def generate_system_message(self):
         jena_client = current_app.config['JENA_CLIENT']
-        code, text = jena_client.execute_sparql_query_global("SELECT * WHERE { ?sub ?pred ?obj .}")
+        code,text = jena_client.execute_sparql_query_global("SELECT * WHERE { ?sub ?pred ?obj .}")
         # print(text)
         if code == 200:
             rdf_to_nl = rdf_to_natural_language(text)

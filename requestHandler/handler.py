@@ -44,7 +44,7 @@ def uploadRDF_request():
             filename = rdf_file.filename
             rdf_file.seek(0)  # ensure the reader pointer in start(0) location
             content = rdf_file.read().decode('utf-8')
-            if filename.endswith('.rdf'):
+            if filename.endswith('.rdf') or filename.endswith('.xml'):
                 rdf_type = 'xml'
             elif filename.endswith('.ttl'):
                 rdf_type = 'turtle'
@@ -78,12 +78,15 @@ def sparQL_query():
     try:
         req = request.get_json()
         jenaClient = current_app.config['JENA_CLIENT']
-        res_code, res_content = jenaClient.execute_sparql_query_global(req['query'])
-        if res_code >= 300:
+        res_code,res_content = jenaClient.execute_sparql_query_global(req['query'])
+        if res_code != 200:
             print("Error: ", res_code, res_content)
             return res_content, res_code
         # print(res_content)
-        return jsonify({"success": res_content}), 200
+        data=[]
+        for s,o,p in res_content:
+            data.append({'Subject': s, 'Object': o, 'Predicate': p})
+        return jsonify({"success": data}), 200
     except Exception as e:
         print("Error: ", str(e))
         return jsonify({"error": str(e)}), 500
@@ -105,6 +108,14 @@ def download_file(file_id):
 @handler.route('/deleteRDF_request/<file_id>', methods=['get'])
 def deleteRDF_request(file_id):
     try:
+        # check user identity
+        db_interface = current_app.config['DB_INTERFACE']
+        user = current_user
+        user_id = user.id
+        record = db_interface.get_upload_record(file_id)
+        if record['user_id'] != user_id:
+            return jsonify({"error": "You are not allowed to delete this record"}), 401
+
         # delete the rdf data from jena
         jenaClient = current_app.config['JENA_CLIENT']
         code, text = jenaClient.delete_rdf_by_record_id(file_id)
@@ -126,20 +137,20 @@ def deleteRDF_request(file_id):
         return jsonify({"error": str(e)}), 500
 
 
-@handler.route('/sparQL_query_single_record/<subpath>', methods=['post'])
-def sparQL_query_single_record(subpath):
-    try:
-        req = request.get_json()
-        jenaClient = current_app.config['JENA_CLIENT']
-        res_code, res_text = jenaClient.execute_sparql_query_for_graph(subpath, req['query'])
-        if res_code >= 300:
-            print("Error: ", res_code, res_text)
-            return jsonify({"error": res_text}), res_code
-        return jsonify({"success": res_text}), 200
-
-    except Exception as e:
-        print("Error: ", str(e))
-        return jsonify({"error": str(e)}), 500
+# @handler.route('/sparQL_query_single_record/<subpath>', methods=['post'])
+# def sparQL_query_single_record(subpath):
+#     try:
+#         req = request.get_json()
+#         jenaClient = current_app.config['JENA_CLIENT']
+#         res_code, res_text = jenaClient.execute_sparql_query_for_graph(subpath, req['query'])
+#         if res_code >= 300:
+#             print("Error: ", res_code, res_text)
+#             return jsonify({"error": res_text}), res_code
+#         return jsonify({"success": res_text}), 200
+#
+#     except Exception as e:
+#         print("Error: ", str(e))
+#         return jsonify({"error": str(e)}), 500
 
 
 @handler.route('/generate_graph/<subpath>', methods=['GET'])

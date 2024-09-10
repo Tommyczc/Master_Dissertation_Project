@@ -1,3 +1,4 @@
+from SPARQLWrapper import SPARQLWrapper, TURTLE
 from pyfuseki import FusekiUpdate, FusekiQuery
 import requests
 from rdflib import Graph
@@ -44,51 +45,41 @@ class JenaClient:
         return 200, "RDF files uploaded successfully"
 
     def execute_sparql_query_global(self, query):
-        # 获取所有命名图
-        list_graphs_query = """
-               SELECT DISTINCT ?g WHERE {
-                   GRAPH ?g { ?s ?p ?o }
-               }
-               """
-        graph_results = self.query_client.run_sparql(list_graphs_query).convert()
-        graph_uris = [result['g']['value'] for result in graph_results['results']['bindings']]
+        try:
+            g = Graph()
+            sparql = SPARQLWrapper(f"{self.jena_url}/{self.dataset}/query")
+            sparql.setQuery(f"""
+                            CONSTRUCT {{ ?s ?p ?o }}
+                            WHERE {{
+                                GRAPH ?g {{
+                                    ?s ?p ?o .
+                                }}
+                            }}
+                            """)
+            sparql.setReturnFormat(TURTLE)
+            results = sparql.query().convert()
+            g.parse(data=results, format="turtle")
 
-        # 构建 FROM 子句
-        from_clauses = " ".join([f"FROM <{graph_uri}>" for graph_uri in graph_uris])
+            result = g.query(query)
+            return 200, result
+        except Exception as e:
+            print("Error: " + str(e))
+            return 500, str(e)
 
-        # 检查是否是 SELECT 查询，并插入 FROM 子句
-        wrapped_query = ''
-        if query.strip().lower().startswith("select"):
-            # select_index = query.lower().find("select")
-            where_index = query.lower().find("where")
-            wrapped_query = query[:where_index] + " " + from_clauses + " " + query[where_index:]
-        else:
-            wrapped_query = query  # 对于非 SELECT 查询，我们不做任何修改
-        # print(wrapped_query)
-        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-        response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': wrapped_query.encode('utf-8')},
-                                 headers=headers)
-
-        # print('res: ',response.status_code,response.text)
-        # if response.status_code < 300:
-        #     return 200,response.json()
-        # else:
-        return response.status_code, response.text
-
-    def execute_sparql_query_for_graph(self, graph_url, query):
-        # 检查是否是 SELECT 查询，并插入 FROM 子句
-        if query.strip().lower().startswith("select"):
-            select_index = query.lower().find("select")
-            where_index = query.lower().find("where")
-            wrapped_query = query[:where_index] + f" FROM <{graph_url}> " + query[where_index:]
-        else:
-            wrapped_query = query  # 对于非 SELECT 查询，我们不做任何修改
-
-        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-        response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': wrapped_query},
-                                 headers=headers)
-
-        return response.status_code, response.text
+    # def execute_sparql_query_for_graph(self, graph_url, query):
+    #     # 检查是否是 SELECT 查询，并插入 FROM 子句
+    #     if query.strip().lower().startswith("select"):
+    #         select_index = query.lower().find("select")
+    #         where_index = query.lower().find("where")
+    #         wrapped_query = query[:where_index] + f" FROM <{graph_url}> " + query[where_index:]
+    #     else:
+    #         wrapped_query = query  # 对于非 SELECT 查询，我们不做任何修改
+    #
+    #     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    #     response = requests.post(f"{self.jena_url}/{self.dataset}/query", data={'query': wrapped_query},
+    #                              headers=headers)
+    #
+    #     return response.status_code, response.text
 
     def get_rdf_data_for_graph(self, graph_url):
         query = f"""
@@ -113,9 +104,9 @@ class JenaClient:
         else:
             return None
 
-    def execute_sparql_update(self, update):
-        response = self.update_client.run_sparql(update)
-        return response.convert()
+    # def execute_sparql_update(self, update):
+    #     response = self.update_client.run_sparql(update)
+    #     return response.convert()
 
     def delete_rdf_by_record_id(self, record_id):
         named_graph_uri = record_id

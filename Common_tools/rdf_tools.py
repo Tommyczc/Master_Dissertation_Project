@@ -19,14 +19,12 @@ def transfer_RDF_to_graph(triples):
 
 
 # transfer the rdf data from jena to natural language
-def rdf_to_natural_language(text: str):
-    json_object = json.loads(text)
-    rdf_data = json_object['results']['bindings']
+def rdf_to_natural_language(result):
     descriptions = []
-    for triple in rdf_data:
-        subj = triple['sub']['value'].split('/')[-1]
-        pred = triple['pred']['value'].split('/')[-1].replace('_', ' ')
-        obj = triple['obj']['value'].split('/')[-1]
+    for s, o, p in result:
+        subj = s.split('/')[-1]
+        pred = p.split('/')[-1].replace('_', ' ')
+        obj = o.split('/')[-1]
         description = f"{subj} {pred} {obj}."
         descriptions.append(description)
     return "\n".join(descriptions)

@@ -80,7 +80,7 @@
             </el-table-column>
         </el-table>
 
-        <el-button type="danger" @click="confirmDelete">Delete This Record</el-button>
+        <el-button type="danger" @click="confirmDelete">Delete This Graph</el-button>
         <el-button type="primary" @click="openDialog">Generate Knowledge Graph</el-button>
         <br>
         <el-select v-model="queryType" placeholder="Select query type" style="margin-top: 20px; width: 200px;">
@@ -102,7 +102,7 @@
             :visible.sync="dialogVisible"
             width="30%"
             @close="dialogVisible = false">
-            <span>Are you sure you want to delete this record?</span>
+            <span>Are you sure you want to delete this graph?</span>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">Cancel</el-button>
                 <el-button type="primary" @click="deleteRecord">Confirm</el-button>
@@ -235,12 +235,17 @@
                     this.fetchGraphData();
             },
             fetchGraphData() {
-                    axios.get(`/generate_graph/${this.record_id}`)
-                        .then(response => response.data)
-                        .then(data => {
-                            this.renderGraph(data.nodes, data.edges);
-                        });
-                },
+                const startTime = performance.now()
+                axios.get(`/generate_graph/${this.record_id}`)
+                    .then(response => response.data)
+                    .then(data => {
+                        this.renderGraph(data.nodes, data.edges);
+                        const endTime = performance.now(); // End timing
+                        const timeTaken = endTime - startTime;
+                        console.log(`Time taken to fetch and render graph: ${timeTaken} ms`);
+                        this.$message.success(`Time taken to fetch and render graph: ${timeTaken.toFixed(2)} ms`);
+                    });
+            },
             renderGraph(nodes, edges) {
                 const container = document.getElementById('mynetwork');
                 const data = {

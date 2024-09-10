@@ -1,0 +1,205 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://dbpedia.org/resource/17-4_stainless_steel> rdfs:comment "SAE Type 630 stainless steel (more commonly known as 17-4 PH, or simply 17-4; also known as UNS S17400) is a grade of martensitic precipitation hardened stainless steel. It contains approximately 15–17.5% chromium and 3–5% nickel, as well as 3–5% copper. The name comes from the chemical makeup which is approximately 17% chromium and 4% nickel. SUS630 is the same as 17-4PH, and they both refer to the same grade."@en .
+
+<http://dbpedia.org/resource/2014_Ukrainian_Amateur_Cup> rdfs:comment "The 2014 Ukrainian Amateur Cup was the nineteenth annual season of Ukraine's football knockout competition for amateur football teams. The competition started on 13 August 2014 and concluded on 9 November 2014. The cup holders Chaika Petropavlivska Borshchahivka did not participate, but finalist FC Yednist Plysky were defeated by FC Kolos Kovalivka in quarterfinals."@en .
+
+<http://dbpedia.org/resource/2015_Nicholls_State_Colonels_football_team> rdfs:comment "The 2015 Nicholls State Colonels football team represented Nicholls State University as a member of the Southland Conference during the 2015 NCAA Division I FCS football season. Led by first-year head coach Tim Rebowe, the Colonels compiled an overall record of 3–8 with a mark of 3–6 in conference play, placing in a three-way tie for eighth in the Southland. Nicholls State played home games at John L. Guidry Stadium in Thibodaux, Louisiana."@en .
+
+<http://dbpedia.org/resource/Abdelmadjid_Sidi_Said> rdfs:comment "Abdelmadjid Sidi Said (born 1949 in Michelet) is an Algerian politician, and the President of the General Union of Algerian Workers (UGTA) since 1997."@en .
+
+<http://dbpedia.org/resource/Accidental_American> rdfs:comment "An Accidental American is someone whom US law deems to be an American citizen, but who has only a tenuous connection with that country. For example, American nationality law provides (with limited exceptions) that anyone born on US territory is a US citizen (jus soli), including those who leave as infants or young children, even if neither parent is a US citizen (as in the case of Boris Johnson until he renounced his US citizenship in 2016). US law also ascribes American citizenship to some children born abroad to a US citizen parent (jus sanguinis), even if those children never enter the United States. Since the early 2000s, the term \"Accidental American\" has been adopted by several activist groups to protest tax treaties and Inter-Governmental Agreements which treat such people as Americ"@en .
+
+<http://dbpedia.org/resource/Akira_Nagata> rdfs:comment "Akira Nagata (永田 彬, Nagata Akira, born January 22, 1985) is a Japanese singer, actor, and voice actor. He is a member of the boy band Run&Gun. He was part of the casts of Musical Air Gear with his fellow band members, a voice actor for Lovely Complex, and he also portrays Seigi Ozaki in the tokusatsu franchise Kamen Rider Den-O."@en .
+
+<http://dbpedia.org/resource/American_Choral_Directors_Association> rdfs:comment "The American Choral Directors Association (ACDA), headquartered in Oklahoma City, Oklahoma, is a non-profit organization with the stated purpose of promoting excellence in the field of choral music. Its membership comprises approximately 22,000 choral directors representing over a million singers."@en .
+
+<http://dbpedia.org/resource/American_Rare_Breed_Association> rdfs:comment "The American Rare Breed Association (ARBA) is a kennel club for owners and fanciers of dog breeds and types not recognised by the American Kennel Club."@en .
+
+<http://dbpedia.org/resource/Anne_Swithinbank> rdfs:comment "Anne Swithinbank (born 1957 in Belvedere in Kent) is a trained horticulturist and freelance gardening broadcaster who has written several books on gardening, including Gardener's Question Time: All Your Gardening Problems Solved, Gardeners' World Book of Houseplants and Gardeners' World Book of Containers."@en .
+
+<http://dbpedia.org/resource/Anthony_McKenna> rdfs:comment "Anthony Edward McKenna (born 19 January 1969, Lytham St Annes, Lancashire, England) is a former English cricketer. McKennna was a right-handed batsman, who bowled right-arm medium pace. McKenna represented the Yorkshire Cricket Board in List A cricket. His debut List A match came against the Gloucestershire Cricket Board in the 1999 NatWest Trophy. From 1999 to 2001, he represented the Board in four List A matches, the last of which came against the Northamptonshire Cricket Board in the 2001 Cheltenham & Gloucester Trophy. In his five List A matches, he scored 57 runs at a batting average of 11.40, with a high score of 43. In the field he took one catch. With the ball he took one wicket at a bowling average of 35.00, with best figures of 1 for 25."@en .
+
+<http://dbpedia.org/resource/Anthony_Peratt> rdfs:comment "Anthony L. Peratt is an American physicist whose most notable achievements have been in plasma discharge petroglyphs, plasma physics, nuclear fusion and the monitoring of nuclear weapons."@en .
+
+<http://dbpedia.org/resource/Aruba_Davis_Cup_team> rdfs:comment "The Aruba Davis Cup team represents Aruba in Davis Cup tennis competition and are governed by the . They currently compete in the Americas Zone of Group IV."@en .
+
+<http://dbpedia.org/resource/Atif_Loukil> rdfs:comment "Atif Loukil (born 2 June 1974) is a Tunisian volleyball player. He competed in the men's tournament at the 1996 Summer Olympics."@en .
+
+<http://dbpedia.org/resource/Automotive_Industry_Action_Group> rdfs:comment "The Automotive Industry Action Group ('AIAG) is a not-for-profit association founded in 1982 and based in Southfield, Michigan. It was originally created to develop recommendations and a framework for the improvement of quality in the North American automotive industry. The association's areas of interest have expanded to include product quality standards, bar code and RFID standards, materials management, EDI, returnable containers and packaging systems, and regulatory and customs issues."@en .
+
+<http://dbpedia.org/resource/Because_No_One_Stopped_Us> rdfs:comment "Because No One Stopped Us is the debut album from Belvedere, released in 1998."@en .
+
+<http://dbpedia.org/resource/Berezne> rdfs:comment "Berézne (Ukrainian: Бере́зне, Russian: Берёзно, Polish: Bereźne) is a city in Rivne Oblast, Ukraine, located on the Sluch River north of Rivne. It is the administrative centre of the Berezne Raion. Population: 13,280."@en .
+
+<http://dbpedia.org/resource/Bochner's_theorem_(Riemannian_geometry)> rdfs:comment "In mathematics, Salomon Bochner proved in 1946 that any Killing vector field of a compact Riemannian manifold with negative Ricci curvature must be zero. Consequently the isometry group of the manifold must be finite."@en .
+
+<http://dbpedia.org/resource/Boys'_Lockdown> rdfs:comment "Boys' Lockdown is a 2020 Philippine Boy's Love web series produced by Atty. Darwin Mariano of Bit by Bit Development Company (Ticket2Me). Originally written by Danice Mae P. Sison as an eight-episode series, it was reduced to six due to limited production resources during the COVID-19 pandemic."@en .
+
+<http://dbpedia.org/resource/Bože_pravde> rdfs:comment "\"Bože pravde\" (Serbian Cyrillic: Боже правде, Serbian pronunciation: [bǒʒe prâːʋde], \"God of Justice\") is the national anthem of Serbia, as defined by the Article 7 of the Constitution of Serbia. \"Bože pravde\" was the state anthem of the Kingdom of Serbia until 1919 when Serbia became a part of the Kingdom of Serbs, Croats and Slovenes. It was re-adopted as the national anthem at first by the parliamentary recommendation on the use in 2004 and then constitutionally sanctioned in 2006, after Serbia became independent again."@en .
+
+<http://dbpedia.org/resource/COSMOSOMAS> rdfs:comment "COSMOSOMAS is a circular scanning astronomical microwave experiment to investigate the Cosmic Microwave Background anisotropy and diffuse emission from the Galaxy on angular scales from 1 to 5 degrees. It was designed and built by the Instituto de Astrofísica de Canarias (IAC) in Tenerife, Spain, in 1998. Its name comes from \"COSMOlogical Structures On Medium Angular Scales\" referring to CMB fluctuations. This experiment grew out experience of the previous Tenerife Experiment with the need to go to smaller angular scales with greater sensitivity."@en .
+
+<http://dbpedia.org/resource/Catholic_Marian_music> rdfs:comment "Catholic Marian music shares a trait with some other forms of Christian music in adding another emotional dimension to the process of veneration and in being used in various Marian ceremonies and feasts. Marian music is now an inherent element in many aspects of the veneration of the Blessed Virgin Mary in Catholic Mariology."@en .
+
+<http://dbpedia.org/resource/Clais> rdfs:comment "Clais is a commune in the Seine-Maritime department in the Normandy region in northern France."@en .
+
+<http://dbpedia.org/resource/Clube_Esportivo_Rio_Branco> rdfs:comment "Clube Esportivo Rio Branco, usually known simply as Rio Branco (or Rio Branco-RJ) is a Brazilian football team from the city of Campos dos Goytacazes, Rio de Janeiro state, founded on November 5, 1912."@en .
+
+<http://dbpedia.org/resource/Corruption_in_Portugal> rdfs:comment "In 2013, a report by Transparency International revealed that political parties, Parliament, the judiciary and the military are the most corrupt institutions in Portugal. Transparency International's 2021 Corruption Perceptions Index ranks the country in 18th place out of 180 countries in the Index."@en .
+
+<http://dbpedia.org/resource/Eugenio_Courret> rdfs:comment "Eugène Courret (1839 – 1920), known as Eugenio, was a French photographer who was based in Lima, Peru."@en .
+
+<http://dbpedia.org/resource/Fasih_Bari_Khan> rdfs:comment "Fasih Bari Khan(Urdu: فصیح باری خان) also spelled as Faseeh Bari Khan is a television scriptwriter from Pakistan. He was born in Karachi, Pakistan. Khan is generally known for the bold portrayals of social issues in his writings. He also wrote Lollywood films also and best known for 7 Din Mohabbat In (2018). In Pakistan television industry he is highly acclaimed for his blockbuster drama Quddusi Sahab Ki Bewah."@en .
+
+<http://dbpedia.org/resource/Geißler_(Lauer)> rdfs:comment "Geißler is a river of Lower Franconia, Bavaria, Germany. The Geißler is about 14 kilometres (8.7 mi) long. It is a left tributary of the Lauer near Stadtlauringen."@en .
+
+<http://dbpedia.org/resource/Golden_Glades_Interchange> rdfs:comment "The Golden Glades Interchange, located in Miami Gardens and North Miami Beach, Florida, United States, is the confluence of six major roads serving eastern and southern Florida. It is named after the original name of North 167th Street, Golden Glades Road."@en .
+
+<http://dbpedia.org/resource/Harry_Gee> rdfs:comment "Harold \"Harry\" Gee (25 December 1895 – 1991) was an English professional association footballer from Haydock, Lancashire who played as a wing half."@en .
+
+<http://dbpedia.org/resource/Henry_Woollett> rdfs:comment "Henry Winslow Woollett, DSO, MC & Bar (5 August 1895 – 31 October 1969) was a British flying ace and the highest scoring British balloon busting ace credited with 35 aerial victories, including eleven balloons, during the First World War. He continued to serve in the Royal Air Force until the 1930s."@en .
+
+<http://dbpedia.org/resource/Howard_Selsam> rdfs:comment "Howard Selsam (born Howard Brillinger Selsam; 28 June 1903 – 7 September 1970) was an American Marxist philosopher."@en .
+
+<http://dbpedia.org/resource/Hughes_Township,_Nodaway_County,_Missouri> rdfs:comment "Hughes Township is a township in Nodaway County, in the U.S. state of Missouri. Hughes Township was erected in 1845, and named after General Andrew S. Hughes, a pioneer citizen."@en .
+
+<http://dbpedia.org/resource/I'm_Henery_the_Eighth,_I_Am> rdfs:comment "\"I'm Henery the Eighth, I Am\" (also \"I'm Henery the VIII, I Am\" or \"I'm Henry VIII, I Am\"; spelled \"Henery\" but pronounced \"'Enery\" in the Cockney style normally used to sing it) is a 1910 British music hall song by Fred Murray and R. P. Weston. It was a signature song of the music hall star Harry Champion. In the well-known chorus, Henery explains that his wife had been married seven times before, each time to another Henery: However, in the Hermits' version, Peter Noone ends each chorus with \"I'm her eighth old man, I'm 'Enery\" and never sings \"named\"."@en .
+
+<http://dbpedia.org/resource/Ian_McGuckin> rdfs:comment "Ian McGuckin (born 24 April 1973) is an English former footballer who played in the Football League for Fulham, Hartlepool United and Oxford United."@en .
+
+<http://dbpedia.org/resource/Icebreaking_Emergency_Evacuation_Vessel> rdfs:comment "Petroleum exploitation companies operate a fleet of Ice Breaking Emergency Evacuation Vessels (IBEEV) on the Caspian Sea, to service the extensive oil fields there.The vessels are designed to evacuate up to 338 individuals per trip. They are designed to function using compressed air to power their engines, if they are passing through pools of burning oil, or oxygen poor environments—carrying enough compressed air to function for 50 minutes. Every evacuee is issued a rebreather, for passing through anoxic environments, if the airtight evacuation capsules are compromised. The vessels are insulated so passengers and crew can survive transiting through pools of burning oil. Since the Caspian freezes during winter the vessels are designed to break up to 0.6 metres (2.0 ft) of ice."@en .
+
+<http://dbpedia.org/resource/Iridopsis_larvaria> rdfs:comment "Iridopsis larvaria, the bent-line gray, is a species of geometrid moth in the family Geometridae. It is found in North America. The MONA or Hodges number for Iridopsis larvaria is 6588."@en .
+
+<http://dbpedia.org/resource/It's_Your_Move_(game_show)> rdfs:comment "It's Your Move was a Canadian charade-style game show originally produced in the mid-1960s. Created by Art Baer and Ben Joelson (producers of The Love Boat), the show's original host was Paul Hanover. On the program, teams bid against each other as to who could act out an answer to their teammate in less time. Doing so scored one point which the other team scored if the acting team failed. Three points won a prize, and $15 if the team scored at least one point on their own. The winners chose one of the three words they scored and revealed either a merchandise item, up to $250 in cash, or dinner for two. Two games won the match, and five games won a grand prize such as a trip."@en .
+
+<http://dbpedia.org/resource/Iyen_Island> rdfs:comment "Iyen Island is in the Louisiade Archipelago, within Milne Bay Province of southeastern Papua New Guinea. It is jurisdictionally in the Yaleyamba Rural Local Level Government Area."@en .
+
+<http://dbpedia.org/resource/Jim_Fairburn> rdfs:comment "James Edgar Fairburn (September 12, 1927 – March 28, 2015) was a Canadian ice hockey player with the Penticton Vees. He won a gold medal at the 1955 World Ice Hockey Championships in West Germany. He also played professionally for the San Francisco Shamrocks, Minneapolis Millers, Portland Eagles, Victoria Cougars, and New Westminster Royals."@en .
+
+<http://dbpedia.org/resource/Johnston_County,_Oklahoma> rdfs:comment "Johnston County is a county located in the U.S. state of Oklahoma. As of the 2010 census, the population was 10,957. Its county seat is Tishomingo. It was established at statehood on November 16, 1907, and named for Douglas H. Johnston, a governor of the Chickasaw Nation. Johnston County is part of the Texoma Region."@en .
+
+<http://dbpedia.org/resource/Jonnada> rdfs:comment "Jonnada is an Indian village in Alamuru mandal of East Godavari district, Andhra Pradesh. The village is on the bank of River Godavari (Gautami). National Highway 16 passes through it."@en .
+
+<http://dbpedia.org/resource/Karate_at_the_2014_Asian_Games_–_Men's_kata> rdfs:comment "The men's individual kata competition at the 2014 Asian Games in Incheon, South Korea was held on 2 October 2014 at the Gyeyang Gymnasium."@en .
+
+<http://dbpedia.org/resource/Kimemi> rdfs:comment """Kimemi is a commune of the city of Butembo in North Kivu, Democratic Republic of the Congo. 
+* v 
+* t 
+* e"""@en .
+
+<http://dbpedia.org/resource/Koen_Schockaert> rdfs:comment "Koen Schockaert (born 13 February 1978) is a retired Belgian football striker."@en .
+
+<http://dbpedia.org/resource/Kurash_at_the_2019_Southeast_Asian_Games> rdfs:comment "The kurash competitions at the 2019 Southeast Asian Games in Philippines were held at the LausGroup Event Centre in San Fernando, Pampanga between 1 and 2 December 2019."@en .
+
+<http://dbpedia.org/resource/Labastide-Monréjeau> rdfs:comment "Labastide-Monréjeau (French pronunciation: ​[labastid mɔ̃ʁeʒo]; Occitan: Lahòra) is a commune in the Pyrénées-Atlantiques department in the Nouvelle-Aquitaine region in Southwestern France. In 2019, it had a population of 604."@en .
+
+<http://dbpedia.org/resource/List_of_members_of_the_United_States_House_of_Representatives_in_the_107th_Congress_by_seniority> rdfs:comment "This is a complete list of members of the United States House of Representatives during the 107th United States Congress listed by seniority.As an historical article, the districts and party affiliations listed reflect those during the 107th Congress (January 3, 2001 – January 3, 2003). Current seats and party affiliations on the List of current members of the United States House of Representatives by seniority will be different for certain members. Committee chairmanship in the House is often associated with seniority. However, party leadership is typically not associated with seniority."@en .
+
+<http://dbpedia.org/resource/Luz_Escamilla> rdfs:comment "Luz Robles Escamilla is the Senator for the Utah State Senate's 1st District (map), defeating Republican Carlton Christensen for the seat November 4, 2008 after having beaten incumbent Sen. Fred Fife for the party nomination earlier that year."@en .
+
+<http://dbpedia.org/resource/Macanese_cuisine> rdfs:comment "Macanese cuisine (Chinese: 澳門土生葡菜, Portuguese: culinária macaense) is mainly influenced by Chinese cuisine, especially Cantonese cuisine and European cuisine, especially Portuguese cuisine and influences from Southeast Asia and the Lusophone world, due to Macau's past as a Portuguese colony and long history of being an international tourist gambling centre."@en .
+
+<http://dbpedia.org/resource/Mattel_Interactive> rdfs:comment "Mattel Interactive (Known as Mattel Media until 1999) was a video game publisher and software distributor."@en .
+
+<http://dbpedia.org/resource/Megapurpuricenus> rdfs:comment "Megapurpuricenus is a genus of long-horned beetles in the family Cerambycidae containing one described species, M. magnificus."@en .
+
+<http://dbpedia.org/resource/Men's_Central_Jail> rdfs:comment "Men's Central Jail is a Los Angeles County Sheriff's Department county jail for men in Los Angeles, Los Angeles County, California, United States. Built in 1963, it is one of the oldest county jails in California. The Men's Central Jail is located at 441 Bauchet St., Los Angeles 90012. The Men's Central Jail houses men who are awaiting trial or who have been convicted of crimes."@en .
+
+<http://dbpedia.org/resource/Meter_cake> rdfs:comment "Meter cake or meter-long cake (foreign names below) is a bicolor loaf-shaped cake made from yellow and brown sponge cake layered with buttercream or pudding and covered with a chocolate topping. It is baked in a baking tin in the shape of a \"roe deer back\" and served cut into slices. The cake's name is often a hyperbole derived from its length, which is usually less than a meter, but ranks it among the longest baked cakes. A meter cake is traditionally served as a dessert during Christmas or Easter."@en .
+
+<http://dbpedia.org/resource/Mirosławki> rdfs:comment "Mirosławki [mirɔˈswafki] is a village in the administrative district of Gmina Stęszew, within Poznań County, Greater Poland Voivodeship, in west-central Poland. It lies approximately 6 kilometres (4 mi) north-west of Stęszew and 23 km (14 mi) south-west of the regional capital Poznań. The village has a population of 120."@en .
+
+<http://dbpedia.org/resource/Mokrian-e_Bakhtari_Rural_District> rdfs:comment "Mokrian-e Bakhtari Rural District (Persian: دهستان مکریان باختری) is a rural district (dehestan) in the Central District of Piranshahr County, West Azerbaijan Province, Iran. At the 2006 census, its population was 9,120, in 1,330 families. The rural district has 45 villages."@en .
+
+<http://dbpedia.org/resource/Monstre_Marin_Corporation> rdfs:comment "Monstre Marin Corporation (Sea Monster Corporation) known as MMC was a French record label, located in Paris. It is founded by rapper and singer Gims, and affiliated with the Universal Music France record company. The first compilation of the label La Monster Party chapitre 1 was published on 30 June 2014. At the same time, Gims opened a management firm called Warano Consulting."@en .
+
+<http://dbpedia.org/resource/Mordru_the_Merciless> rdfs:comment "\"Mordru the Merciless\" is a story arc that was published by DC Comics, and was presented in Adventure Comics #369-370 (June–July 1968). It was written by Jim Shooter, pencilled by Curt Swan and inked by Jack Abel. The story arc features the first appearance of Mordru, arguably the most powerful enemy of the Legion of Super-Heroes."@en .
+
+<http://dbpedia.org/resource/Natalie_Nassar> rdfs:comment "Natalie Nassar (born November 30, 1981) is an American voice actress for ADV Films. As such, she has been known in Pani Poni Dash! as the brainy student Miyako Uehara and in Coyote Ragtime Show for voicing the Criminal Guild assassin, March."@en .
+
+<http://dbpedia.org/resource/National_Scrabble_Championship_(UK)> rdfs:comment "The UK National Scrabble Championship (NSC) is a British national Scrabble tournament that has been held annually (except 1995, 2020 and 2021) since its inception in 1971. It was formerly organised by Mattel, the copyright owners of Scrabble in the UK, and has been organised by the Association of British Scrabble Players (ABSP) since 2014. It is one of five major tournaments in the UK, the other four being the UK Open, the British Isles Elimination Scrabble Tournament (BEST), the British Matchplay Scrabble Championship (BMSC) and the UK Masters. The current UK champion is Brett Smitheram."@en .
+
+<http://dbpedia.org/resource/New_Forest_Act_1800> rdfs:comment "The New Forest Act 1800 (39 & 40 Geo 3 c 86) was an Act of the Parliament of Great Britain. So much of this Act as subjected certain officers therein mentioned to forfeiture and deprivation of their offices for the offences in this Act mentioned was repealed and made void by section 6 of the Dean Forest Act 1819 (59 Geo 3 c 86). The marginal note to that section said that the effect of this was to repeal section 23 of the New Forest Act 1800. This repeal was subject to a proviso. The whole Act was repealed by section 1(4) of, and the Schedule to, the Wild Creatures and Forest Laws Act 1971."@en .
+
+<http://dbpedia.org/resource/Nyota_(bonobo)> rdfs:comment "Nyota (pronounced en-Yo-ta; born 1998), also known by the lexigram , is a bonobo. Nyota was born at the at Georgia State University. His mother was Panbanisha and his father was . With Panbanisha's death on November 6, 2012, Nyota became the sole surviving member of his immediate family. Nyota's name means 'star' in Lingala, a language from the Democratic Republic of Congo, Africa.Nyota was reared by Panbanisha and Kanzi with primatologists Sue Savage-Rumbaugh and William M. Fields."@en .
+
+<http://dbpedia.org/resource/O_Menino_no_Espelho> rdfs:comment "O Menino no Espelho (The Boy in the Mirror) is a 2014 Brazilian fantasy adventure drama film directed by Guilherme Fiúza Zenha, based on the book of the same name by Fernando Sabino. The film stars Lino Facioli, Laura Neiva, Mateus Solano and Regiane Alves."@en .
+
+<http://dbpedia.org/resource/Orchestre_des_Champs-Élysées> rdfs:comment "The Orchestre des Champs-Élysées is an orchestra that specializes in the performance of music from the period from roughly 1750 to the early twentieth century, that is, it covers the period from the flourishing of Haydn to that of Mahler. It performs each work on instruments from the period of the composer's lifetime. It was established in 1991."@en .
+
+<http://dbpedia.org/resource/Orekhovo-Zuyevo_constituency> rdfs:comment "The Orekhovo-Zuyevo constituency (No.123) is a Russian legislative constituency in Moscow Oblast. The constituency covers northeastern Moscow Oblast."@en .
+
+<http://dbpedia.org/resource/Othello_(character)> rdfs:comment "Othello (/oʊˈθɛloʊ/) is a character in Shakespeare's Othello (c. 1601–1604). The character's origin is traced to the tale \"Un Capitano Moro\" in Gli Hecatommithi by Giovanni Battista Giraldi Cinthio. There, he is simply referred to as the Moor. Othello was first mentioned in a Revels account of 1604 when the play was performed on 1 November at Whitehall Palace with Richard Burbage almost certainly Othello's first interpreter. Modern notable performers of the role include Paul Robeson, Orson Welles, Richard Burton, James Earl Jones, Laurence Fishburne, Laurence Olivier, and Avery Brooks."@en .
+
+<http://dbpedia.org/resource/PPP2R2A> rdfs:comment "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform is an enzyme regulator that in humans is encoded by the PPP2R2A gene."@en .
+
+<http://dbpedia.org/resource/Pagan_Airstrip> rdfs:comment "Pagan Airstrip (FAA LID: TT01) is a public airport located on Pagan Island in the United States Commonwealth of the Northern Mariana Islands, near the village of . The airport is owned by Commonwealth Ports Authority."@en .
+
+<http://dbpedia.org/resource/Palais_Lantivy> rdfs:comment "Palais Lantivy is a Neoclassical palace in Ajaccio, Corsica. It serves as the Corsican Prefecture, the headquarters for administration of the department of Corse-du-Sud and the General Council. Construction occurred between 1826 and 1830, under a plan of the architect Alphonse de Gisors. It was listed as a historical monument on 30 January 1990."@en .
+
+<http://dbpedia.org/resource/Palazzo_dell'Aeronautica> rdfs:comment "The Palazzo dell'Aeronautica (Roma) is a building in Rome, Italy, and is the headquarters of the Italian Air Force."@en .
+
+<http://dbpedia.org/resource/Patricia_Morrisroe> rdfs:comment "Patricia Morrisroe (born January 14, 1951) is an American journalist and author, best known for writing the biography of Robert Mapplethorpe. Her writing has appeared in The New York Times, Vogue, New York Magazine, and others."@en .
+
+<http://dbpedia.org/resource/PenPoint_OS> rdfs:comment "The PenPoint OS was a product of GO Corporation and was one of the earliest operating systems written specifically for graphical tablets and personal digital assistants. It ran on AT&T Corporation's EO Personal Communicator as well as a number of Intel x86 powered tablet PCs including IBM's ThinkPad 700T series, NCR's 3125, 3130 and some of GRiD Systems' pen-based portables. It was never widely adopted."@en .
+
+<http://dbpedia.org/resource/Piórków> rdfs:comment "Piórków [ˈpjurkuf] is a village in the administrative district of Gmina Baćkowice, within Opatów County, Świętokrzyskie Voivodeship, in south-central Poland. It lies approximately 6 kilometres (4 mi) west of Baćkowice, 19 km (12 mi) west of Opatów, and 40 km (25 mi) east of the regional capital Kielce. The village has a population of 480."@en .
+
+<http://dbpedia.org/resource/Principality_of_Transylvania_(1570–1711)> rdfs:comment "The Principality of Transylvania (Hungarian: Erdélyi Fejedelemség; Latin: Principatus Transsilvaniae; German: Fürstentum Siebenbürgen; Romanian: Principatul Transilvaniei / Principatul Ardealului; Turkish: Erdel Voyvodalığı / Transilvanya Prensliği) was a semi-independent state ruled primarily by Hungarian princes. Its territory, in addition to the traditional Transylvanian lands, also included the other major component called Partium, which was in some periods comparable in size with Transylvania proper. The establishment of the principality was connected to the Treaty of Speyer. However, Stephen Báthory's status as king of Poland also helped to phase in the name Principality of Transylvania. It was usually under the suzerainty of the Ottoman Empire, although the principality often had du"@en .
+
+<http://dbpedia.org/resource/Raised_on_Country> rdfs:comment "\"Raised on Country\" is a song recorded by American country music artist Chris Young. It was released on January 28, 2019, as the first single from Young's seventh studio album Famous Friends. It was originally intended to be the title track, but the album's release was delayed due to the COVID-19 pandemic, leading to it being retitled to Famous Friends. Young co-wrote the track with Corey Crowder and Cary Barlowe."@en .
+
+<http://dbpedia.org/resource/Reby_Sky> rdfs:comment "Rebecca Victoria Hardy (née; Reyes; /ˈrɛbi/; born August 6, 1986) is an American professional wrestler and model. She is best known for her recurring appearances with Total Nonstop Action Wrestling from 2014 to 2017."@en .
+
+<http://dbpedia.org/resource/Romina_Oprandi> rdfs:comment "Romina Sarina Oprandi (born 29 March 1986) is a retired tennis player. She has dual Swiss-Italian citizenship and represented Italy from her professional debut in 2005 until January 2012, when she joined the Swiss tennis federation. She has won 26 singles titles and 11 doubles titles on the ITF Women's Circuit, and also one doubles title on the WTA Tour. On 10 June 2013, she achieved a career-high singles ranking of world No. 32."@en .
+
+<http://dbpedia.org/resource/Scythris_brandbergensis> rdfs:comment "Scythris brandbergensis is a moth of the family Scythrididae. It was described by Bengt Å. Bengtsson in 2014. It is found in Namibia."@en .
+
+<http://dbpedia.org/resource/Sheer_Bluff> rdfs:comment "Sheer Bluff (Dutch: Zaken zijn zaken) is a 1921 British-Dutch silent drama film directed by Frank Richardson."@en .
+
+<http://dbpedia.org/resource/Sheffield_Area_Middle/High_School> rdfs:comment "Sheffield Area Middle/High School is a public middle and high school located in the middle of Pennsylvania's Allegheny National Forest. The Sheffield campus is located along US Route 6 between Clarendon and Sheffield in eastern Warren County and is located on a 43-acre site. Sheffield Area Middle school/High School is one of four high schools operated by the Warren County School District."@en .
+
+<http://dbpedia.org/resource/Shields_Creek> rdfs:comment "Shields Creek is a stream in the U.S. state of Montana. It is a tributary to Bear Creek. Shields Creek was named after Thomas Shields, a railroad agent."@en .
+
+<http://dbpedia.org/resource/Sierra_Boggess> rdfs:comment "Sierra Marjory Boggess (/ˈbɒɡɪs/; born May 20, 1982) is an American theater actress and singer. She is best known for originating the role of Ariel in The Little Mermaid on Broadway, and for her multiple appearances as Christine Daaé in The Phantom of the Opera. She began by playing the role in the Las Vegas production of Phantom in 2006. In 2010, she reprised the role of Christine Daaé in the original London version of Love Never Dies, which continues the story of Phantom, opposite West End / Broadway actor Ramin Karimloo as the Phantom. She also played the role in the Broadway production of The Phantom of the Opera in 2013. She also originated the role of Rosalie Mullins in School of Rock, 2016."@en .
+
+<http://dbpedia.org/resource/Silver_Rocket> rdfs:comment "\"Silver Rocket\" is both the second track and second single from Sonic Youth's 1988 album Daydream Nation. Like all the tracks on the album, the Daydream Nation version of “Silver Rocket” was recorded in the studio, whereas all editions of the single featured a live version of the song with alternate lyrics and were pressed in small runs by independent fanzines. The studio album version also appeared on the B-side of the 12” edition of the band's previous single, “Teen Age Riot.” A video was also produced for “Silver Rocket,” featuring a recording of the song different from any of those appearing on any of the band's singles of albums."@en .
+
+<http://dbpedia.org/resource/Speed> rdfs:comment "In everyday use and in kinematics, the speed (commonly referred to as v) of an object is the magnitude of the change of its position over time or the magnitude of the change of its position per unit of time; it is thus a scalar quantity. The average speed of an object in an interval of time is the distance travelled by the object divided by the duration of the interval; the instantaneous speed is the limit of the average speed as the duration of the time interval approaches zero. Speed is as velocity."@en .
+
+<http://dbpedia.org/resource/Stevan_Mokranjac> rdfs:comment "Stevan Stojanović (Serbian Cyrillic: Стеван Стојановић, Serbian pronunciation: [stêʋaːn stojǎːnoʋitɕ]; 9 January 1856 – 28 September 1914), known as Stevan Mokranjac (Serbian Cyrillic: Стеван Мокрањац, pronounced [stêʋaːn mokrǎːɲats]) was a Serbian composer and music educator. Born in Negotin in 1856, Mokranjac studied music in Belgrade, Munich, Rome and Leipzig while in his twenties. Later, he became the conductor of the Belgrade Choir Society and founder of the Serbian School of Music and the first Serbian string quartet, in which he played the cello. He left Belgrade at the beginning of World War I and moved to Skopje, where he died on 28 September 1914."@en .
+
+<http://dbpedia.org/resource/Sułkowice,_Greater_Poland_Voivodeship> rdfs:comment "Sułkowice [suu̯kɔˈvit͡sɛ] is a village in the administrative district of Gmina Krobia, within Gostyń County, Greater Poland Voivodeship, in west-central Poland. It lies approximately 5 kilometres (3 mi) east of Krobia, 10 km (6 mi) south of Gostyń, and 68 km (42 mi) south of the regional capital Poznań. The village has a population of 596."@en .
+
+<http://dbpedia.org/resource/Tennō-ji_(Taitō)> rdfs:comment "Tennō-ji (天王寺) is a Tendai Buddhist temple of Japan, located in Yanaka, Taitō, Tokyo. The temple was erected by Nichigen (日源) in 1274."@en .
+
+<http://dbpedia.org/resource/The_Angel_and_the_Dark_River> rdfs:comment "The Angel and the Dark River is the third album by the British doom/death metal band My Dying Bride. The 1996 re-release contains one bonus track \"The Sexuality of Bereavement\" and a bonus CD titled Live at the Dynamo. The Live CD was recorded during their appearance at the Dynamo Festival in 1995. Aaron Stainthorpe's lyrics continued in the vein of Turn Loose the Swans, focusing on religious symbolism and relationship problems. Stainthorpe has said in many interviews that \"Two Winters Only\" is his favourite My Dying Bride song."@en .
+
+<http://dbpedia.org/resource/The_Medicine_Men_(film)> rdfs:comment "The Medicine Men is a 1938 American short Pre-Code comedy film directed by Norman Taurog."@en .
+
+<http://dbpedia.org/resource/The_Nomad_Series> rdfs:comment "The Nomad Series is a box set by the Canadian alt-country band Cowboy Junkies, collecting the four individual albums of the Nomad series, Renmin Park, Demons, Sing in My Meadow, and The Wilderness on the first four discs, and on the final disc six of the seven songs from the Demons digital bonus disc, plus four previously unreleased songs worked on during the creation of the series."@en .
+
+<http://dbpedia.org/resource/Thierry_Coppens> rdfs:comment "Thierry Coppens (born 2 November 1979) is a Belgian professional football goalkeeper. He currently plays for Ronse."@en .
+
+<http://dbpedia.org/resource/Tjaskers_in_Overijssel> rdfs:comment "A Tjasker is a type of small drainage windmill used in the Netherlands and north Germany. There are seven tjaskers remaining in Overijssel, all located in the marshy region in the northwest corner of the province."@en .
+
+<http://dbpedia.org/resource/Truth_and_Justice> rdfs:comment "Truth and Justice (Estonian: Tõde ja õigus) I-V, written in 1926–1933, is a pentalogy by A. H. Tammsaare, considered to be his most famous work, and one of the foundational works in Estonian literature."@en .
+
+<http://dbpedia.org/resource/UL_Hospitals_Group> rdfs:comment "The UL Hospitals Group (Irish: Grúpa Ospidéal Ollscoil Luimnigh) is one of the hospital groups established by the Health Service Executive in Ireland."@en .
+
+<http://dbpedia.org/resource/Ukraїner> rdfs:comment "Ukraїner is an educational, multimedia Ukrainian studies project, the materials of which are based on the results of socio-cultural expeditions. Ukraїner was created by journalist and writer Bohdan Logvynenko as a volunteer media project. The team went on the first expedition in June 2016. By the end of 2019, a collection of media materials was created, which are translated into nine languages, two books were published, a full-length documentary was made, project collaborated with the government to popularize initiatives directed to familiarize non-ukrainians with some of the aspects of Ukrainian culture, events were held in a number of European capitals with the support of Ukrainian diplomats."@en .
+
+<http://dbpedia.org/resource/Untxin> rdfs:comment "The Untxin is a coastal river of the French Basque Country, in Nouvelle-Aquitaine, Southwest France. It is 9.5 km (5.9 mi) long. It rises on the northern slope of the Xoldokogaina, elevation 479 metres (1,572 ft), in the east of Biriatou.The motorway of the Basque Coast (A63) is settled in its valley. It collects in Urrugne waters from the Mandale. The Untxin flows into the ocean in Ciboure."@en .
+
+<http://dbpedia.org/resource/Utto> rdfs:comment "The Blessed Utto was the first abbot of the Bavarian Metten Abbey of the Benedictine Order. His feast is celebrated on October 3."@en .
+
+<http://dbpedia.org/resource/Wolfgang_Lettl> rdfs:comment "Wolfgang Lettl (18 December 1919 – 10 February 2008) was a surrealist painter who was born and who died in Augsburg, Germany. His retrospective was exhibited at the Schaezlerpalais in 2019. In 1939, at the age of 20, Wolfgang joined the German Army and served as a communications officer in occupied Paris from 1940 to 1943, during which time he worked on his watercolours and first became exposed to surrealism. Later in the war, he became a reconnaissance airman in Norway, where he was captured at the end of the war and held for four months. He married Franziska Link in 1949."@en .
+
+<http://dbpedia.org/resource/Wumo> rdfs:comment "WUMO, formerly Wulffmorgenthaler, is a webcomic and newspaper comic strip created by Danish writer/artist duo Mikael Wulff and Anders Morgenthaler. The name of the strip is a portmanteau created from the pair's surnames. The name was also given to a comedy TV series, broadcast on the Danish channel DR2 in 2005. The strip changed its name to 'WUMO' in June 2012."@en .
+
+<http://dbpedia.org/resource/Yatarō_Mishima> rdfs:comment "Viscount Yatarō Mishima (三島 彌太郎, Mishima Yatarō, May 4, 1867 – March 7, 1919) was a Japanese businessman, central banker and the 8th Governor of the Bank of Japan (BOJ). Viscount Mishima was a member of Japan's House of Peers."@en .
+
+<http://dbpedia.org/resource/Young_&_Sick> rdfs:comment "Young & Sick is a Los Angeles and New York City based music and art project. The solo project is the brainchild of Dutch artist Nick van Hofwegen, described as a \"double threat\" in art and music by the Wall Street Journal, who is responsible for the project's musical composition, production, and performance, as well as all artwork. Young & Sick is currently releasing music with Neon Gold Records and B3Sci Records and was previously signed to Harvest Records. He has created artwork for a variety of well known entertainers including Foster the People, The Velvet Teen, Maroon 5, Robin Thicke, Mikky Ekko, T. Mills, Andy Dick, Jerry Stiller, L.A. Salami and others. In 2014, Zane Lowe and BBC Radio 1 called Young & Sick the \"Next Hype\" and the project was named Stereogum's \"Band to Watch.\""@en .
+

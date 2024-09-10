@@ -1,3 +1,5 @@
+import time
+
 from flask import request, current_app
 from flask_login import current_user
 from flask_socketio import emit, SocketIO
@@ -19,7 +21,11 @@ def register_handlers():
 
     @socketio.on('query', namespace='/rdf_local')
     def rdf_local_query(json):
+        start_time = time.time()
         res = graph_manager.query_graph(request.args.get('graph_uri'), json['query'])
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"local query:{json['query']}\nResponse Time: {elapsed_time*1000:.2f} ms")
         emit('answer', res)
 
     @socketio.on('disconnect', namespace='/rdf_local')
@@ -28,6 +34,7 @@ def register_handlers():
 
     @socketio.on('update_query', namespace='/rdf_local')
     def rdf_local_update_query(json):
+        start_time = time.time()
         # print("update query")
         #check user identity
         user = current_user
@@ -46,6 +53,10 @@ def register_handlers():
                     emit("error", res)
             else:
                 emit("error", "Sorry, only the owner of data can fo the edition")
+
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"local query:{json['update_query']}\nResponse Time: {elapsed_time * 1000:.2f} ms")
 
     @socketio.on('question', namespace='/KGQA')
     def handle_event(json):

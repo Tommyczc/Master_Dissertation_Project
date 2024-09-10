@@ -1,0 +1,102 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://dbpedia.org/resource/1910_Costa_Rica_earthquakes> rdfs:comment "The 1910 Costa Rica earthquakes were a series of destructive seismic events that affected Cartago, Costa Rica from 13 April to 4 May. The sequence began with a Ms  5.8 earthquake. The largest and most destructive in the sequence occurred on 4 May, measuring Ms  6.4. A total of 2,450 people were killed and the city of Cartago was severely affected."@en .
+
+<http://dbpedia.org/resource/AWGIE_Award_for_Stage> rdfs:comment "The AWGIE Award for Stage is awarded by the Australian Writers' Guild at the annual AWGIE Awards for Australian performance writing. The award is for the playscript. To be eligible, the play must have had its first professional production (as distinct from reading) in the previous year. David Williamson has received the award five times, over the period 1972 to 1988. Andrew Bovell has also won five times (once jointly), over the period 1997 to 2014. Hannie Rayson, Nick Enright and Patricia Cornelius have all won three times. Award recipients are:"@en .
+
+<http://dbpedia.org/resource/Archie_R._Clemins> rdfs:comment "Archie Ray Clemins (November 18, 1943 – March 14, 2020) was a United States Navy four star admiral who served as Commander in Chief, United States Pacific Fleet (CINCPACFLT) from 1996 to 1999."@en .
+
+<http://dbpedia.org/resource/Argunovo,_Kirillovsky_District,_Vologda_Oblast> rdfs:comment "Argunovo (Russian: Аргуново) is a rural locality (a village) in Nikolotorzhskoye Rural Settlement, Kirillovsky District, Vologda Oblast, Russia. The population was 1 as of 2002."@en .
+
+<http://dbpedia.org/resource/Austria_at_the_2015_World_Aquatics_Championships> rdfs:comment "Austria competed at the 2015 World Aquatics Championships in Kazan, Russia from 24 July to 9 August 2015."@en .
+
+<http://dbpedia.org/resource/Battalions_of_Light_Infantry_of_Africa> rdfs:comment "The Battalions of Light Infantry of Africa (French: Bataillons d'Infanterie Légère d'Afrique or BILA), better known under the acronym Bat' d'Af', were French infantry and construction units, serving in Northern Africa, made up of men with prison records who still had to do their military service or soldiers with serious disciplinary records."@en .
+
+<http://dbpedia.org/resource/Ben_Cregor> rdfs:comment "Benjamin Woodbury Cregor (January 31, 1898 - February 20, 1968) was a college football player and coach."@en .
+
+<http://dbpedia.org/resource/Bibiyapur> rdfs:comment "Bibiyapur is a habitation in the village of in , Hardoi district, Uttar Pradesh, India. As of 1 April 2009 its population was 451."@en .
+
+<http://dbpedia.org/resource/Chamisso_Wilderness> rdfs:comment "Chamisso Wilderness is a 455-acre (184 ha) wilderness area in the U.S. state of Alaska. It was designated by the United States Congress in 1975. A small subunit of the Chukchi Sea Unit of the Alaska Maritime National Wildlife Refuge, Chamisso Island and nearby Puffin Island were combined as a wildlife refuge in 1912, designated Wilderness in 1975, and added to the AMNWR in 1980."@en .
+
+<http://dbpedia.org/resource/Community_(celebrity_texting)> rdfs:comment "Community is a social marketing startup that connects fans with celebrities, through a phone number run by Community. Celebrities leak or share their phone number as if it's their personal cell phone. It is based in Santa Monica, California. The cofounders are and , who pivoted from their previous app, , which was in a Techstars incubator in 2017. , formerly CTO of Hulu, is the CTO."@en .
+
+<http://dbpedia.org/resource/Dolores_Rocket> rdfs:comment "Dolores Rocket was a famous racing greyhound during the 1970s. She is regarded as being the one of the leading racing greyhounds in history and won the sports ultimate prize, the English Greyhound Derby."@en .
+
+<http://dbpedia.org/resource/Dzierzkowa> rdfs:comment "Dzierzkowa [d͡ʑeʂˈkɔva] (German: Dätzdorf) is a small village in the administrative district of Gmina Przeworno, within Strzelin County, Lower Silesian Voivodeship, in south-western Poland. Prior to 1945 it was in Germany. It lies approximately 10 kilometres (6 mi) east of Przeworno, 13 kilometres (8 mi) south-east of Strzelin, and 50 kilometres (31 mi) south of the regional capital Wrocław."@en .
+
+<http://dbpedia.org/resource/Edd_China> rdfs:comment "Edward John China (born 9 May 1971) is an English television presenter, mechanic, motor specialist and inventor, best known as being presenter and mechanic on Discovery Channel's television show Wheeler Dealers. He has also appeared on Top Gear, Auto Trader, Scrapheap Challenge and Fifth Gear."@en .
+
+<http://dbpedia.org/resource/Eden_Sonsona> rdfs:comment "Eden Baja Sonsona (born December 27, 1988) is a Filipino professional boxer. He previously held the WBC and WBF International super featherweight titles, and the GAB Philippine bantamweight title. He is a cousin of fellow boxer Marvin Sonsona."@en .
+
+<http://dbpedia.org/resource/Edward_William_Osborne> rdfs:comment "Edward William Osborne SSJE (January 5, 1845 - July 5, 1926) was the second bishop of the Episcopal Diocese of Springfield."@en .
+
+<http://dbpedia.org/resource/Ekattorer_Dingulee> rdfs:comment "Ekattorer Dingulee (Bengali: একাত্তরের দিনগুলি, English: The Days Of 71)) is an autobiography by martyr-mother Jahanara Imam based on her experiences of the liberation war of Bangladesh in 1971. Jahanara Imam's son Shafi Imam Rumi, a student, fought the Pakistani army in Dhaka and urban regions. This book describes Jahanara's daily life as well as a description of the horrors associated with the Liberation War, including the deaths of her son and husband during the conflict."@en .
+
+<http://dbpedia.org/resource/Ekspress-AMU1> rdfs:comment "Ekspress-AMU1 (Russian: Экспресс-АМУ1), also known as Eutelsat 36C, is a geostationary communications satellite operated by Russian Satellite Communications Company (RSCC) and designed and manufactured by Airbus Defence and Space on the Eurostar-3000 satellite bus for its Ekspress constellation. It massed 5,892 kg (12,990 lb) at launch, had a power production capacity of 15 kW and a 15-year design life. Its payload is composed of 61 Ku-band and 10 Ka-band transponders."@en .
+
+<http://dbpedia.org/resource/Enayetullah_Khan> rdfs:comment "Enayetullah Khan (born 1953) is a Bangladeshi entrepreneur, author, journalist and patron of the arts. He is best known as the founder and managing director of the Cosmos Group, a Bangladeshi conglomerate incorporating over a dozen companies operating at home and abroad. He is the founder of Dhaka Courier and United News of Bangladesh."@en .
+
+<http://dbpedia.org/resource/Fagus_grandifolia> rdfs:comment "Fagus grandifolia, the American beech or North American beech, is a species of beech tree native to the eastern United States and extreme southeast of Canada."@en .
+
+<http://dbpedia.org/resource/Frozen_food> rdfs:comment "Freezing food preserves it from the time it is prepared to the time it is eaten. Since early times, farmers, fishermen, and trappers have preserved grains and produce in unheated buildings during the winter season. Freezing food slows decomposition by turning residual moisture into ice, inhibiting the growth of most bacterial species. In the food commodity industry, there are two processes: mechanical and cryogenic (or flash freezing). The freezing kinetics is important to preserve the food quality and texture. Quicker freezing generates smaller ice crystals and maintains cellular structure. Cryogenic freezing is the quickest freezing technology available due to the ultra low liquid nitrogen temperature −196 °C (−320 °F)."@en .
+
+<http://dbpedia.org/resource/Fruit_Ninja:_Puss_in_Boots> rdfs:comment "Fruit Ninja: Puss in Boots is a video game developed and published by Halfbrick Studios. A spin-off from the highly successful Fruit Ninja, it is also a crossover of the 2011 animated film Puss in Boots. The game was released on October 20, 2011."@en .
+
+<http://dbpedia.org/resource/Henry_Saari> rdfs:comment "Henry Saari (born 14 January 1964, in Pori, Finland), also known as Henry the Great (Henry Suuri) is a Finnish actor, director and porn star. In 1993, Saari won the title of Mr. Finland and placed 3rd in the Mr. Europe contest. He is known colloquially in Spanish-speaking countries as “El Cinturonero de Finland.”"@en .
+
+<http://dbpedia.org/resource/Horhe> rdfs:comment "The Horhe (Russian: Хорхе) is a family of Russian non-lethal pistols, based on Ukrainian Fort 12 and Fort 17 pistols, Horhe are produced since 2006 by joint-stock company Klimovsk Specialized Ammunition Plant."@en .
+
+<http://dbpedia.org/resource/ISKCON_Temple,_Bangalore> rdfs:comment "Sri Radha Krishna-chandra Temple (Kannada: ಶ್ರೀ ರಾಧಾ ಕೃಷ್ಣ ಮಂದಿರ) is one of the largest Krishna-Hindu temples in the world. It is situated in Bangalore in the Indian state of Karnataka. The temple is dedicated to Hindu deities Radha Krishna and propagates Monotehism as mentioned in Chandogya Upanishad."@en .
+
+<http://dbpedia.org/resource/Infection_and_Drug_Resistance> rdfs:comment "Infection and Drug Resistance is a peer-reviewed medical journal covering research on infection treatments and strategies. The journal was established in 2008 and is published by Dove Medical Press. It is abstracted and indexed in PubMed, EMBASE, and Scopus."@en .
+
+<http://dbpedia.org/resource/Isostyla_picata> rdfs:comment "Isostyla picata is a moth of the family Notodontidae first described by William Warren in 1900. It is found in Colombia and Ecuador."@en .
+
+<http://dbpedia.org/resource/It_(poetry_collection)> rdfs:comment "It (Danish: Det) is a 1969 book of poetry by the Danish writer Inger Christensen. The book focuses on social criticism, and lines from it have frequently been quoted in the Danish political discourse. It received the Gyldne Laurbær for best Danish book of the year."@en .
+
+<http://dbpedia.org/resource/Joseph_Raphael> rdfs:comment "Joseph Raphael (1869–1950) was an American Impressionist painter who spent most of his career as an expatriate but maintained close ties with the artistic community of San Francisco, California."@en .
+
+<http://dbpedia.org/resource/Julbåten_Juliana> rdfs:comment "Julbåten Juliana (\"Juliana, the Christmas Boat\") was the Sveriges Television's Christmas calendar and Sveriges Radio's Christmas Calendar in 1961. The radio version was called Julbåtens resa runt jorden (\"The Christmas Boat's Journey Around the Earth\")."@en .
+
+<http://dbpedia.org/resource/Kazimierz_Polok> rdfs:comment "Kazimierz Polok (11 February 1937 – 5 May 1993) was a Polish footballer. He played in five matches for the Poland national football team from 1961 to 1963."@en .
+
+<http://dbpedia.org/resource/Lexington,_Minnesota> rdfs:comment "Lexington is a city in Anoka County, Minnesota, United States, and is a northern suburb of the Twin Cities metropolitan area. The population was 2,049 at the 2010 census."@en .
+
+<http://dbpedia.org/resource/List_of_Olympic_medalists_in_tug_of_war> rdfs:comment "This is the complete list of Olympic medalists in tug of war from 1900 to 1920."@en .
+
+<http://dbpedia.org/resource/List_of_Taito_games> rdfs:comment "This is a list of games developed or published by Taito, a Japanese game developer and publisher."@en .
+
+<http://dbpedia.org/resource/Lopharcha_psathyra> rdfs:comment "Lopharcha psathyra is a species of moth of the family Tortricidae. It is found in Japan on the islands of Kyushu, Honshu and Shikoku. There are at least two generations per year with adults on wing from late April to mid-June and from mid-July to September. The larvae bore into the fruits of Neolitsea sericea. They have brownish-yellow and a brown head. Full-grown larvae reach a length of about 13 mm. Pupation takes place in a cocoon."@en .
+
+<http://dbpedia.org/resource/Mark_Dawidziak> rdfs:comment "Mark Dawidziak (born September 7, 1956) is an American author and critic."@en .
+
+<http://dbpedia.org/resource/Max_Rée> rdfs:comment "Max Rée (7 October 1889 – 7 March 1953) was a Danish architect, costume designer, scene designer, and art director who worked in both theatre and film. He won an Academy Award for Best Art Direction for the film Cimarron. He was born in Copenhagen, Denmark and died in Los Angeles, California."@en .
+
+<http://dbpedia.org/resource/Melissa_Raju_Thomas> rdfs:comment "Melissa Raju Thomas is an Indian actress, screenwriter and model. She made her feature film debut in Geetu Mohandas' bilingual film Moothon (2019)."@en .
+
+<http://dbpedia.org/resource/Neeti_Sastra> rdfs:comment "Niti Saara or Niti Sastra is a popular collection of morals written by Baddena, a Telugu poet. Baddena (1220-1280? AD) is the composer of the famous Sumathi Satakam as well as Niti Sastra. Details about his origin are not known. But, he is believed to be a Chola prince named Bhadra Bhupala. He was a Samanta Raju (vassal) under Kakatiya Rudrama Devi (reign: 1262-1296 AD) during the thirteenth century."@en .
+
+<http://dbpedia.org/resource/Perumyia> rdfs:comment "Perumyia is a genus of parasitic flies in the family Tachinidae."@en .
+
+<http://dbpedia.org/resource/Polo_kinase> rdfs:comment "In enzymology, a polo kinase (EC 2.7.11.21) is a kinase enzyme i.e. one that catalyzes the chemical reaction ATP + a protein ADP + a phosphoprotein Thus, the two substrates of these enzymes are ATP and protein, whereas their two products are ADP and phosphoprotein. These enzymes belong to the family of transferases, specifically those transferring a phosphate group to the sidechain oxygen atom of serine or threonine residues in proteins (protein-serine/threonine kinases). The systematic name of this [polo[-like] kinase] enzyme class is ATP:protein phosphotransferase (spindle-pole-dependent)."@en .
+
+<http://dbpedia.org/resource/Rakesh_Manpat> rdfs:comment "Rakesh Manpat is an Indian shooter from Bangalore. He completed his education from Jain University where he was in the junior division of NCC. In 2006, at 16, he became a Junior state champion, winning all gold medals. Rakesh Manpat was ranked third behind Gagan Narang and Abhinav Bindra at the Common Wealth Games Trials 2010. He won a bronze as a Senior at 55th Nationals Championships, a silver at 56th National Championships and finally a gold at the 57th National Shooting Championship in the men's free rifle prone category."@en .
+
+<http://dbpedia.org/resource/Raphick_Jumadeen> rdfs:comment "Raphick Rasif Jumadeen (born 12 April 1948) is a former West Indian international cricketer who played in twelve Test matches from 1972 to 1979. He scored a total of 84 runs in his Test career, including 56 in one innings."@en .
+
+<http://dbpedia.org/resource/Samuel_Jasper_Loring> rdfs:comment "Samuel Jasper Loring (1914-1963) was an aeronautical engineer with Chance Vought and later Hamilton Standard who worked on various aspects of the aeroelastic flutter problem."@en .
+
+<http://dbpedia.org/resource/Ssamjang> rdfs:comment "Ssamjang (Korean: 쌈장) is a thick, spicy paste used with food wrapped in a leaf in Korean cuisine. The sauce is made of fermented soy beans (doenjang), red chili paste (gochujang), sesame oil, onion, garlic, green onions, and optionally brown sugar."@en .
+
+<http://dbpedia.org/resource/St._John's_College_(York)_F.C.> rdfs:comment "St. John's College (York) F.C. was an English football club based in York."@en .
+
+<http://dbpedia.org/resource/Street_of_Shadows_(1937_film)> rdfs:comment "Street of Shadows (French: Mademoiselle Docteur or Salonique, nid d'espions) is a 1937 French spy film directed by G. W. Pabst. An English-language version with exactly the same plot was filmed at the same time under the direction of Edmond T. Gréville, but with some changes in the cast. Dita Parlo remained as Mademoiselle Docteur, but Erich von Stroheim took over the part of the German spy chief. The English-language version was released in the United States under the title Under Secret Orders. It was shot at the Joinville Studios in Paris. The film's sets were designed by the art directors and Serge Piménoff."@en .
+
+<http://dbpedia.org/resource/The_Nightly_Show_with_Larry_Wilmore> rdfs:comment "The Nightly Show with Larry Wilmore is a 2015–16 American late-night panel talk show hosted by Larry Wilmore that aired for two seasons on Comedy Central. The show was a spin-off of The Daily Show, which featured Wilmore as a recurring contributor. It aired Monday through Thursday at 11:30 PM (ET) following The Daily Show. It served as a replacement for The Colbert Report, which aired in the same time-slot from October 2005 to December 2014. The show premiered on January 19, 2015. It was canceled on August 15, 2016, due to poor ratings performance. The final episode aired on August 18, 2016."@en .
+
+<http://dbpedia.org/resource/Villa_Madre_Cabrini> rdfs:comment "Villa Madre Cabrini, formerly Villa Acquarone, is a villa in the Castelletto quarter of Genoa, Liguria, Northwestern Italy. It is situated in a panoramic location on the hill of Bachernia, commanding open views over the Old City, the harbor and the Gulf of Genoa. Throughout its history, the villa has played an important role in the urban development and cultural life of the quarter. In the 18th century, it was one of the first suburban villas built in the old hamlet of Bachernia, giving impulse to the urbanization of the area. Then the property of the noble Acquarone family, the villa and its owner, Pietro Acquarone, II Count d'Acquarone, were in the 19th century at the heart of establishment of the economically and culturally active via Acquarone neighborhood."@en .
+
+<http://dbpedia.org/resource/Waleska_Soto> rdfs:comment "Ana Waleska Soto Abril (born 14 August 1990) is a Guatemalan sport shooter and former softball player. She competed in the women's trap event at the 2020 Summer Olympics. Soto started out as a softball player, winning a bronze medal with the Guatemalan national team at the 2010 Central American and Caribbean Games in Puerto Rico, although she learned the sport of shooting as a teenager through a summer camp. She earned a scholarship to play softball at Martin Methodist College in the United States, where she began shooting again. Soto competed in both sports at the 2014 Central American and Caribbean Games, winning a silver medal in the women's trap event. She won a bronze medal in the same event at the 2017 Bolivarian Games, and placed fourth at the 2019 Pan American Games to qualify for "@en .
+
+<http://dbpedia.org/resource/Yoshimuriella> rdfs:comment "Yoshimuriella is a genus of foliose (leafy) lichens in the family Peltigeraceae. It has nine species."@en .
+

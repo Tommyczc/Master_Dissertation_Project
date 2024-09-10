@@ -23,8 +23,7 @@ app.register_blueprint(auth_bp)
 # db, fs = init_db(
 #     'mongodb+srv://tommy:!project22558800@disser.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256'
 #     '&retrywrites=false&maxIdleTimeMS=120000')
-db, fs = init_db(
-    "mongodb://localhost:27017")
+db, fs = init_db("mongodb://localhost:27017")
 db_interface = MongoDBInterface(db, fs)
 # store db_interface object in app config
 app.config['DB_INTERFACE'] = db_interface

@@ -51,7 +51,7 @@ class GraphManager:
             try:
                 processUpdate(self.graphs[graph_uri], update_query)
                 jena_client = current_app.config['JENA_CLIENT']
-                res=jena_client.recover_rdf_by_graph_uri(graph_uri,self.graphs[graph_uri])
+                res = jena_client.recover_rdf_by_graph_uri(graph_uri, self.graphs[graph_uri])
                 if res is not None:
                     return res
                 return "Updated the data successfully"
@@ -59,8 +59,6 @@ class GraphManager:
                 return str(e)
         else:
             return "Cannot find this data record, jena's problem"
-
-
 
     def unload_graph(self, graph_uri):
         if graph_uri in self.user_count:
